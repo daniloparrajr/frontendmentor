@@ -1,0 +1,42 @@
+// Define css variables in the root document to allow all elements to use it.
+:root {
+  --ff: 'Red Hat Display', sans-serif;
+
+  --c-white: hsl(0, 0%, 100%);
+  --c-cornflower-blue: hsl(245, 83%, 68%);
+  --c-persian-blue: hsl(245, 75%, 52%);
+  --c-cloud-burst: hsl(223, 47%, 23%);
+  --c-bermuda-gray: hsl(224, 23%, 55%);
+  --c-zircon: hsl(225, 100%, 98%);
+}
+
+@import '../node_modules/normalize-scss/sass/normalize/import-now';
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: 16px;
+}
+
+main {
+  background: #E0E7FF url('./images/pattern-background-desktop.svg') top/contain no-repeat;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 71px 24px;
+  min-height: 709px;
+}
