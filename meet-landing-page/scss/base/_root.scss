@@ -1,0 +1,21 @@
+// Define css variables in the root document to allow all elements to use it.
+:root {
+  --ff-red-hat-display: 'Red Hat Display', sans-serif;
+
+  --c-white: hsl(0, 0%, 100%);
+
+  --c-hippie-blue: hsl(192, 37%, 48%);
+  --c-downy: hsl(192, 54%, 64%);
+  --c-malibu: hsl(192,90%,77%);
+
+  --c-deluge: hsl(268, 34%, 53%);
+  --c-mauve: hsl(268,100%,86%);
+  --c-lavender: hsl(268, 55%, 71%);
+
+  --c-ebony-clay: hsl(240, 21%, 20%);
+  --c-manatee: hsl(240,10%,57%);
+  --c-alabaster: hsl(0,0%,98%);
+  --c-mischka: hsl(240, 10%, 88%);
+
+  font-size: 62.5%;
+}

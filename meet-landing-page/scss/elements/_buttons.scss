@@ -1,0 +1,69 @@
+.button {
+  font-family: var(--ff-red-hat-display);
+  font-weight: 900;
+  line-height: 2.6rem;
+  text-align: center;
+  color: var(--c-manatee);
+  border: 1px solid var(--c-manatee);
+  background-color: var(--c-alabaster);
+  border-radius: 50px;
+  padding: 1.6rem 2.9rem;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out;
+
+  @include media('>desktop') {
+    font-size: 1.6rem;
+  }
+
+  &-group {
+    display: grid;
+    gap: 1.6rem;
+    justify-content: center;
+    grid-template-rows: auto;
+
+    .button {
+      width: max-content;
+      justify-self: center;
+    }
+
+    @include media('>tablet') {
+      grid-template-columns: repeat(2, auto);
+    }
+  }
+
+  &--primary {
+    background-color: var(--c-hippie-blue);
+    border-color: var(--c-hippie-blue);
+    color: var(--c-white);
+    padding: 1.6rem 4rem;
+
+    span {
+      color: var(--c-malibu);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: var(--c-downy);
+      border-color: var(--c-downy);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--c-deluge);
+    border-color: var(--c-deluge);
+    color: var(--c-white);
+
+    span {
+      color: var(--c-mauve);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: var(--c-lavender);
+      border-color: var(--c-lavender);
+    }
+  }
+}

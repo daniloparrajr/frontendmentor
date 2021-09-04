@@ -1,0 +1,94 @@
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1.6rem;
+  text-align: center;
+  overflow-x: hidden;
+
+  @include media('>tablet') {
+    column-gap: 3.2rem;
+  }
+
+  @include media('>desktop') {
+    grid-template-columns: 1fr 540px 1fr;
+    column-gap: 8.8rem;
+    margin-bottom: 11.7rem;
+  }
+
+  &__img-left,
+  &__img-right {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+
+    img {
+      display: block;
+      width: calc(100% + 20px);
+      max-width: 394px;
+      position: relative;
+
+      @include media('>tablet') {
+        width: calc(100% + 26px);
+      }
+
+      @include media('>desktop') {
+        width: calc(100% + 32px);
+      }
+    }
+  }
+
+  &__img-left {
+    justify-content: flex-end;
+    @include media('>desktop') {
+      padding-bottom: 55px;
+    }
+  }
+
+  @include media('>desktop') {
+    &__img-right {
+      grid-column: 3;
+      padding-top: 55px;
+    }
+  }
+
+  &__text {
+    grid-column: span 2;
+    padding: 4.8rem 2.4rem 6.4rem;
+    max-width: 457px;
+    margin: 0 auto;
+
+    @include media('>tablet') {
+      padding: 7.2rem 0 8rem;
+    }
+
+    @include media('>desktop') {
+      grid-column: 2;
+      grid-row: 1;
+      padding: 0;
+      max-width: initial;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    font-size: 4rem;
+    line-height: 4.4rem;
+    margin-bottom: 2.4rem;
+
+    @include media('>tablet') {
+      font-size: 4.8rem;
+      line-height: 4.8rem;
+    }
+
+    @include media('>desktop') {
+      font-size: 6.4rem;
+      line-height: 6.4rem;
+    }
+  }
+
+  &__description {
+    margin: 0 0 3.2rem;
+  }
+}

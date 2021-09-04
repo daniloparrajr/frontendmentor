@@ -1,0 +1,19 @@
+{
+  "name": "meet-landing-page",
+  "version": "1.0.0",
+  "description": "![Design preview for the Order summary card coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "sass:watch": "sass ./scss/style.scss ./style.css --watch",
+    "sass:compile": "sass ./scss/style.scss ./style.css --style=compressed"
+  },
+  "keywords": [
+    "frontendmentor"
+  ],
+  "author": "Danilo Parra Jr.",
+  "license": "ISC",
+  "dependencies": {
+    "include-media": "^1.4.10",
+    "normalize-scss": "^7.0.1"
+  }
+}

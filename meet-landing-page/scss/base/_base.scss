@@ -1,0 +1,28 @@
+@import '../../node_modules/normalize-scss/sass/normalize/import-now';
+@import 'root';
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--ff-red-hat-display);
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--c-manatee);
+  background-color: var(--c-alabaster);
+
+  @include media('>desktop') {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,26 @@
+.divider {
+  position: relative;
+  z-index: 10;
+  &__number {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 5.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--c-mischka);
+    font-weight: 900;
+    margin: 0 auto;
+    line-height: 1;
+    background-color: var(--c-alabaster);
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    height: 8.4rem;
+    width: 1px;
+    background-color: var(--c-mischka);
+    margin: 0 auto;
+  }
+}

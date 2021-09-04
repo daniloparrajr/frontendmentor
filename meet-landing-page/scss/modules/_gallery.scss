@@ -1,0 +1,25 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 2.4rem;
+  list-style: none;
+  margin-top: 6.4rem;
+  margin-bottom: 6.4rem;
+  padding: 0;
+
+  @include media('>tablet') {
+    grid-template-columns: repeat(4,1fr);
+    margin-bottom: 4.8rem;
+    margin-top: 6.7rem;
+  }
+
+  @include media('>desktop') {
+    margin-top: 6.4rem;
+    margin-bottom: 8rem;
+    gap: 3rem;
+  }
+
+  &__image {
+    border-radius: 8px;
+  }
+}

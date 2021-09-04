@@ -1,0 +1,50 @@
+@use "sass:color";
+
+.site-footer {
+  position: relative;
+  margin-top: -2.8rem;
+  z-index: 5;
+  padding: 9.2rem 2.4rem 7.2rem;
+  text-align: center;
+  color: var(--c-alabaster);
+  background: linear-gradient(transparentize(#4D96A9, 0.1), transparentize(#4D96A9, 0.1)), url('./assets/desktop/image-footer.jpg') center/cover no-repeat;
+
+  &__title {
+    color: var(--c-alabaster);
+
+    @include media('>desktop') {
+      max-width: 35rem;
+      margin: 0;
+    }
+  }
+
+  @include media('>desktop') {
+    p:last-of-type {
+      margin: 0;
+      max-width: 35rem;
+    }
+  }
+
+  &-divider {
+    margin-top: 6.4rem;
+  }
+
+  @include media('>tablet') {
+    padding-bottom: 6.6rem;
+
+    >.container {
+      max-width: 54rem;
+    }
+  }
+
+  @include media('>desktop') {
+    text-align: left;
+
+    >.container {
+      max-width: 111rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr) auto;
+      align-items: center;
+    }
+  }
+}
