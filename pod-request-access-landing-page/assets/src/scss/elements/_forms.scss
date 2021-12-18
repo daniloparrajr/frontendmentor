@@ -22,6 +22,7 @@ input {
 
   &.invalid {
     outline: var(--c-coral-red) dashed 2px;
+    margin-bottom: 0.8rem;
   }
 
   &.valid {
