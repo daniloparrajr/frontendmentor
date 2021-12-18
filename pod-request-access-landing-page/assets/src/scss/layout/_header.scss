@@ -1,0 +1,22 @@
+.site-header {
+  text-align: center;
+  padding: 6.2rem 0 5.7rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  @include media('>tablet') {
+    justify-content: flex-start;
+    padding: 5rem 3.9rem;
+    max-width: 144rem;
+    margin: 0 auto;
+  }
+
+  @include media('>desktop') {
+    padding: 10.2rem 16.5rem;
+  }
+}

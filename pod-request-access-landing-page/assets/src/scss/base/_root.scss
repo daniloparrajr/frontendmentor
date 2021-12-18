@@ -1,0 +1,12 @@
+// Define css variables in the root document to allow all components to use it.
+:root {
+  --ff-chivo: 'Chivo', sans-serif;
+  --c-white: hsl(0, 0%, 100%);
+  --c-mirage: hsl(224, 35%, 11%);
+  --c-turquoise: hsl(157, 74%, 62%);
+  --c-martinique: hsl(225, 26%, 23%);
+  --c-periwinkle-gray: hsl(225, 40%, 83%);
+  --c-aero-blue: hsl(157,100%,85%);
+  --c-coral-red: hsl(0deg 96% 61%);
+  font-size: 62.5%;
+}

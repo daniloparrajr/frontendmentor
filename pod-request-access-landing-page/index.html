@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/dist/css/style.css">
+  <title>Frontend Mentor | Pod request access landing page</title>
+</head>
+
+<body>
+  <div class="site-wrap">
+    <header class="site-header">
+      <div class="logo">
+        <h1 class="logo__text u-screen-reader-text">pod</h1>
+        <img src="./assets/images/desktop/logo.svg" alt="pod logo" width="134.85" height="56" class="logo__image">
+      </div>
+    </header>
+    <main class="site-main">
+      <section class="landing">
+        <div class="landing__content">
+          <div class="intro">
+            <h1 class="intro__title"><span>Publish your podcasts</span> everywhere.</h1>
+            <p class="intro__text">Upload your audio to Pod with a single click. We’ll then distribute your podcast to Spotify, Apple Podcasts,
+              Google Podcasts, Pocket Casts and more!</p>
+          </div>
+          <ul class="logo-list">
+            <li class="logo-list__item">
+              <img class="logo-image logo-image--spotify" src="./assets/images/desktop/spotify.svg" alt="Spotify logo">
+            </li>
+            <li class="logo-list__item">
+              <img class="logo-image logo-image--apple" src="./assets/images/desktop/apple-podcast.svg" alt="Apple Podcasts logo">
+            </li>
+            <li class="logo-list__item">
+              <img class="logo-image logo-image--google" src="./assets/images/desktop/google-podcasts.svg" alt="Google Podcasts logo">
+            </li>
+            <li class="logo-list__item">
+              <img class="logo-image logo-image--pocket" src="./assets/images/desktop/pocket-casts.svg" alt="Pocket Casts logo">
+            </li>
+          </ul>
+          <form id="accessForm" class="access-form" novalidate>
+            <input type="email" name="email" id="email" class="access-form__field" autocomplete="off" placeholder="Email Address" required>
+            <input type="submit" class="access-form__submit" value="Request Access">
+          </form>
+        </div>
+        <picture class="landing__image-picture">
+          <source media="(min-width: 1440px)" srcset="./assets/images/desktop/image-host.jpg">
+          <source media="(min-width: 768px)" srcset="./assets/images/tablet/image-host.jpg">
+          <source srcset="./assets/images/mobile/image-host.jpg">
+          <img src="./assets/images/desktop/image-host.jpg" alt="Host" class="landing__image">
+        </picture>
+      </section>
+    </main>
+  </div>
+  <script src="./assets/dist/js/main.bundle.js"></script>
+</body>
+
+</html>

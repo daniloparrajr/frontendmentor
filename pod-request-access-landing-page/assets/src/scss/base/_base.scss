@@ -1,0 +1,33 @@
+@import 'include-media';
+
+@import '../../../../node_modules/normalize-scss/sass/normalize/import-now';
+@import 'root';
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--ff-chivo);
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  font-weight: 300;
+  color: var(--c-periwinkle-gray);
+  min-height: 100vh;
+  background-color: var(--c-mirage);
+
+  @include media('>tablet') {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+}

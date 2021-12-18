@@ -1,0 +1,49 @@
+input {
+  background-color: var(--c-martinique);
+  border: 1px solid var(--c-martinique);
+  color: hsl(225, 8%, 62%);
+  display: block;
+  height: 4.6rem;
+  width: 100%;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  line-height: 2.8rem;
+  padding: .9rem 3.2rem;
+  margin-bottom: 1.6rem;
+  outline: none;
+
+  @include media('>tablet') {
+    height: 5.6rem;
+  }
+
+  &:focus-visible {
+    outline: var(--c-aero-blue) dashed 2px;
+  }
+
+  &.invalid {
+    outline: var(--c-coral-red) dashed 2px;
+  }
+
+  &.valid {
+    outline: var(--c-turquoise) dashed 2px;
+  }
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: hsl(225, 8%, 62%);
+  font-weight: 600;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: hsl(225, 8%, 62%);
+  font-weight: 600;
+}
+
+::placeholder {
+  color: hsl(225, 8%, 62%);
+  font-weight: 600;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: var(--ff-chivo);
+}

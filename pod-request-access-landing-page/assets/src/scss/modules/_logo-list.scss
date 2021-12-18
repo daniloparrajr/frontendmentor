@@ -1,0 +1,47 @@
+.logo-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+
+  .logo-image {
+    display: block;
+    height: auto;
+
+    &--spotify {
+      width: 5.6rem;
+    }
+
+    &--apple {
+      width: 4.5rem;
+    }
+
+    &--google {
+      width: 7.3rem;
+    }
+
+    &--pocket {
+      width: 7.7rem;
+    }
+
+    @include media('>tablet') {
+      &--spotify {
+        width: 9.59rem;
+      }
+
+      &--apple {
+        width: 7.8rem;
+      }
+
+      &--google {
+        width: 12.5rem;
+      }
+
+      &--pocket {
+        width: 12.9rem;
+      }
+    }
+  }
+}

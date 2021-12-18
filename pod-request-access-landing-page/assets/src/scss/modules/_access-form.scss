@@ -1,0 +1,42 @@
+.access-form {
+  position: relative;
+
+  @include media('>tablet') {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    max-width: 42.7rem;
+  }
+
+  &__field {
+    @include media('>tablet') {
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      margin-bottom: 0;
+    }
+  }
+
+  .access-form__submit {
+    @include media('>tablet') {
+      grid-column: 2 / -1;
+      grid-row: 1 / -1;
+      margin: .5rem;
+      width: auto;
+      height: 4.6rem;
+    }
+  }
+
+  &__error-message {
+    grid-column: 1 / -1;
+    margin: .8rem 0 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.4rem;
+    color: var(--c-coral-red);
+
+    @include media('>tablet') {
+      position: absolute;
+      top: 100%;
+      left: 3.2rem;
+    }
+  }
+}

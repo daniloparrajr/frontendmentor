@@ -1,0 +1,84 @@
+.landing {
+  padding: 17.4rem 2.4rem 9.4rem;
+  position: relative;
+
+  @include media('>tablet') {
+    padding: 25.8rem 0 25.7rem;
+    &:after {
+      content: url('../../images/desktop/bg-pattern-dots.svg');
+      display: block;
+      position: absolute;
+      bottom: -1rem;
+      left: 3.9rem;
+      z-index: 15;
+    }
+  }
+
+  @include media('>desktop') {
+    padding: 26.1rem 0 13rem;
+    &:after {
+      bottom: 7.8rem;
+      left: initial;
+      right: 0;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+
+    @include media('>tablet') {
+      opacity: 0.8;
+      left: initial;
+      width: auto;
+      height: auto;
+    }
+
+    @include media('>desktop') {
+      top: 13rem;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 20;
+    max-width: 35rem;
+    margin: 0 auto;
+
+    @include media('>tablet') {
+      max-width: 67.4rem;
+      margin-left: initial;
+      background-color: var(--c-mirage);
+      padding: 9.3rem 3.9rem 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include media('>desktop') {
+      max-width: 88.8rem;
+      padding: 8.8rem 5.8rem 0 16.9rem;
+    }
+  }
+
+  .access-form {
+    margin-bottom: 6.4rem;
+  }
+
+  .logo-list {
+    margin: 0 0 4.8rem;
+
+    @include media('>tablet') {
+      order: 1;
+      margin: 0 0 0.9rem 0;
+    }
+  }
+}
