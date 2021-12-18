@@ -37,7 +37,7 @@
     object-position: top;
 
     @include media('>tablet') {
-      opacity: 0.8;
+      opacity: 1;
       left: initial;
       width: auto;
       height: auto;
