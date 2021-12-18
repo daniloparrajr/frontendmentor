@@ -6,6 +6,11 @@
   list-style: none;
   margin: 0;
 
+  @include media('>tablet') {
+    justify-content: flex-start;
+    gap: 4rem;
+  }
+
   .logo-image {
     display: block;
     height: auto;
