@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Tip calculator app</title>
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <header id="site-header" class="site-header">
+        <img class="site-logo" src="./images/logo.svg" width="87" height="54" alt="Splitter Logo">
+    </header>
+    <main id="site-content">
+        <form action="" class="tip-calculator-form" id="tip-form" novalidate>
+            <div class="tip-calculator-form__fields">
+                <div class="input-wrap">
+                    <label for="bill">Bill</label>
+                    <input class="icon-dollar" type="number" name="bill" id="bill" min="1" step="any" placeholder="0" required>
+                </div>
+
+                <fieldset id="tipFieldSet">
+                    <legend>Select Tip %</legend>
+                    <input tabindex="-1" type="radio" name="tip" id="tip-five-percent" value="5">
+                    <label tabindex="0" for="tip-five-percent">5%</label>
+
+                    <input tabindex="-1" type="radio" name="tip" id="tip-ten-percent" value="10">
+                    <label tabindex="0" for="tip-ten-percent">10%</label>
+
+                    <input tabindex="-1" type="radio" name="tip" id="tip-fifteen-percent" value="15">
+                    <label tabindex="0" for="tip-fifteen-percent">15%</label>
+
+                    <input tabindex="-1" type="radio" name="tip" id="tip-twenty-percent" value="25">
+                    <label tabindex="0" for="tip-twenty-percent">25%</label>
+
+                    <input tabindex="-1" type="radio" name="tip" id="tip-fifty-percent" value="50">
+                    <label tabindex="0" for="tip-fifty-percent">50%</label>
+
+                    <label tabindex="-1"  class="screen-reader-text" for="tip-custom">Custom</label>
+                    <input type="number" name="tip-custom" id="tip-custom" placeholder="Custom" min="1" max="100">
+                </fieldset>
+
+                <div class="input-wrap">
+                    <label for="number-of-people">Number of People</label>
+                    <input class="icon-person" type="number" name="number-of-people" placeholder="0" id="number-of-people" min="1" required>
+                </div>
+            </div>
+
+            <div id="form-results" class="tip-calculator-form__results">
+                <div class="result">
+                    <p class="result__text"><span class="result__label">Tip Amount</span> <span class="result__details">/ person</span></p>
+                    <p class="result__value" id="tip-amount-per-person">$0.00</p>
+                </div>
+
+                <div class="result">
+                    <p class="result__text"><span class="result__label">Total</span> <span class="result__details">/ person</span></p>
+                    <p class="result__value" id="total-per-person">$0.00</p>
+                </div>
+
+                <input disabled type="reset" value="Reset">
+            </div>
+        </form>
+    </main>
+</body>
+</html>

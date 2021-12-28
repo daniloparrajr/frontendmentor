@@ -1,0 +1,11 @@
+@use "reset";
+@use "typography";
+@use "root";
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--c-light-grayish-cyan);
+  font-family: var(--ff-space-mono);
+  font-weight: 700;
+  color: var(--c-dark-grayish-cyan);
+}

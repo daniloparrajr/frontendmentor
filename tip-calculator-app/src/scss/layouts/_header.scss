@@ -1,0 +1,16 @@
+@use '../abstracts' as a;
+
+.site-header {
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+
+  @include a.media(">desktop") {
+    padding-top: 16.3rem;
+    padding-bottom: 8.786rem;
+  }
+}
+
+.site-logo {
+  display: block;
+  margin: 0 auto;
+}

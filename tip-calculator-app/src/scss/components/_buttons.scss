@@ -1,0 +1,32 @@
+@use '../abstracts' as a;
+
+.button,
+input[type="submit"],
+input[type="reset"] {
+  --background-color: var(--c-strong-cyan);
+  background-color: var(--background-color);
+  color: var(--c-very-dark-cyan);
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  &:hover,
+  &:active {
+    --background-color: var(--c-strong-cyan-alt);
+  }
+
+  &:focus {
+    outline: 2px dashed var(--c-strong-cyan);
+  }
+
+  &[disabled]{
+    opacity: 0.35;
+    --background-color: hsla(183, 78%, 24%, 1);
+    cursor: no-drop;
+  }
+
+  @include a.media(">desktop") {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+}

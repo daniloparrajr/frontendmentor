@@ -1,0 +1,102 @@
+@use '../abstracts' as a;
+
+.tip-calculator-form {
+  border-radius: 25px;
+  background-color: var(--c-white);
+  padding: 3.2rem;
+  max-width: 92rem;
+  margin: 0 auto;
+
+  @include a.media(">desktop") {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4.8rem;
+    padding: 3.2rem 3.2rem 3.2rem 4.8rem;
+
+    input[name="number-of-people"] {
+      margin-bottom: 2.9rem;
+    }
+  }
+
+  &__results {
+    padding: 3.7rem 2.4rem 2.4rem;
+    background-color: var(--c-very-dark-cyan);
+    color: var(--c-strong-cyan);
+    border-radius: 15px;
+
+    input[type="reset"] {
+      margin: 3.2rem 0 0;
+    }
+
+    @include a.media(">desktop") {
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+
+      input[type="reset"] {
+        margin-top: auto;
+      }
+    }
+  }
+
+  input[name="tip-custom"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: hsla(180, 18%, 40%, 1);
+    opacity: 1;
+  }
+
+  input[name="tip-custom"]::-moz-placeholder { /* Firefox 19+ */
+    color: hsla(180, 18%, 40%, 1);
+    opacity: 1;
+  }
+
+  input[name="tip-custom"]:-ms-input-placeholder { /* IE 10+ */
+    color: hsla(180, 18%, 40%, 1);
+    opacity: 1;
+  }
+
+  input[name="tip-custom"]:-moz-placeholder { /* Firefox 18- */
+    color: hsla(180, 18%, 40%, 1);
+    opacity: 1;
+  }
+
+  fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.656rem;
+    margin-bottom: 3.2rem;
+    position: relative;
+
+    label,
+    input {
+      margin: 0;
+    }
+
+    input {
+      font-size: 2.4rem;
+      line-height: 3.6rem;
+    }
+
+    @include a.media(">desktop") {
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 4rem;
+      column-gap: 1.4rem;
+      row-gap: 1.6rem;
+    }
+  }
+
+  .error-message {
+    color: var(--c-red);
+    display: block;
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 0;
+    margin-top: 1rem;
+    z-index: 5;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .input-wrap {
+    position: relative;
+  }
+}
