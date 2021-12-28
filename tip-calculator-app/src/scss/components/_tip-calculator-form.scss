@@ -9,7 +9,7 @@
 
   @include a.media(">desktop") {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr minmax(41.3rem, 1fr);
     gap: 4.8rem;
     padding: 3.2rem 3.2rem 3.2rem 4.8rem;
 
@@ -36,6 +36,8 @@
       padding: 4rem;
       display: flex;
       flex-direction: column;
+      max-width: 41.3rem;
+      width: 100%;
 
       input[type="reset"] {
         margin-top: auto;
