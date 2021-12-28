@@ -12,6 +12,8 @@ input {
   margin-bottom: 3.2rem;
   position: relative;
   z-index: 10;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
 
   &.error {
    outline: 2px solid var(--c-red);
