@@ -1,0 +1,52 @@
+@use '../abstracts' as a;
+@use "sass:meta";
+
+:root {
+  color-scheme: light dark;
+
+  // Font.
+  --ff-main: #{meta.inspect(a.$f__space_mono)};
+
+  // Font size.
+  font-size: 62.5%;
+
+  // Transitions.
+  --t-default: 300ms ease-in-out;
+
+  // UI colors.
+  --ui-accent: #{a.$c__azure-radiance};
+  --ui-accent-light: #{a.$c__malibu};
+
+  --ui-bg-primary: #{a.$c__zircon};
+  --ui-bg-seconday: #{a.$c__white};
+
+  --ui-text-primary: #{a.$c__kashmir-blue};
+  --ui-text-seconday: #{a.$c__lynch};
+  --ui-text-tertiary: #{a.$c__white};
+  --ui-text-muted: #{a.$c__rock-blue};
+  --ui-text-heading: #{a.$c__ebony-clay};
+
+  --ui-error-color: #{a.$c__sunset-orange};
+
+  --ui-button-bg: var(--ui-accent);
+  --ui-button-color: #{a.$c__white};
+
+  --ui-logo-color: #{a.$c__ebony-clay};
+
+  // Width.
+  --w-phone: 45rem;
+  --w-tablet: 57.3rem;
+  --w-desktop: 73rem;
+}
+
+.is-dark-theme {
+  --ui-bg-primary: #{a.$c__big-stone};
+  --ui-bg-seconday: #{a.$c__cloud-burst};
+  --ui-text-primary: #{a.$c__white};
+  --ui-logo-color: #{a.$c__white};
+  --ui-text-seconday: #{a.$c__white};
+  --ui-text-tertiary: #{a.$c__white};
+  --ui-text-muted: #{a.$c__manatee};
+  --ui-text-heading: #{a.$c__white};
+  --ui-button-color: #{a.$c__white};
+}

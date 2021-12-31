@@ -1,0 +1,63 @@
+@use '../abstracts' as a;
+
+input {
+  display: block;
+  width: 100%;
+  font-size: 1.3rem;
+  line-height: 2.5rem;
+  transition: background-color var(--t-default);
+
+  &:focus-within {
+    outline: 2px solid var(--ui-accent);
+  }
+}
+
+input[type="search"] {
+  border-radius: 15px;
+  background-color: var(--ui-bg-seconday);
+  box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.198567);
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: var(--ui-text-main);
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: var(--ui-text-main);
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: var(--ui-text-main);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: var(--ui-text-main);
+}
+
+input[type="submit"] {
+  background-color: var(--ui-button-bg);
+  color: var(--ui-button-color);
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color var(--t-default);
+
+  &:hover,
+  &:focus,
+  &:focus-within,
+  &:active {
+    outline: none;
+    background-color: var(--ui-accent-light);
+  }
+}

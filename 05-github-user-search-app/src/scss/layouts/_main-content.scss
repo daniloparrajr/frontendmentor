@@ -1,0 +1,18 @@
+@use '../abstracts' as a;
+
+.app-main-content {
+  padding: 0 2.4rem 7.9rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--w-phone);
+
+  @include a.media('>tablet') {
+    max-width: var(--w-tablet);
+    padding: 0 0 23.6rem;
+  }
+
+  @include a.media('>desktop') {
+    max-width: var(--w-desktop);
+    padding: 0 0 14.5rem;
+  }
+}

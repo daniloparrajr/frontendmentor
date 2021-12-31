@@ -1,0 +1,192 @@
+@use '../abstracts' as a;
+
+.github-user {
+  padding: 3.2rem 2.4rem 4.8rem;
+  background-color: var(--ui-bg-seconday);
+  border-radius: 15px;
+  box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  column-gap: 1.9rem;
+  transition: background-color var(--t-default);
+
+  .is-dark-theme & {
+    box-shadow: none;
+  }
+
+  @include a.media('>tablet') {
+    grid-template-columns: 11.7rem 1fr;
+    column-gap: 4.1rem;
+    padding: 4rem;
+  }
+
+  @include a.media('>desktop') {
+    padding: 4.8rem;
+  }
+
+  &__stats,
+  &__details,
+  &__bio {
+    grid-column: 1 / -1;
+
+    @include a.media('>desktop') {
+      grid-column: 2 / -1;
+    }
+  }
+
+  &__avatar {
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+    max-width: 7rem;
+
+    @include a.media('>tablet') {
+      max-width: 11.7rem;
+    }
+
+    @include a.media('>desktop') {
+      grid-row: 1 / 3;
+    }
+  }
+
+  &__header {
+    @include a.media('>tablet') {
+      align-self: center;
+    }
+
+    @include a.media('>desktop') {
+      align-self: start;
+      display: grid;
+      grid-template-columns: 1fr max-content;
+    }
+  }
+
+  &__name {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+
+    @include a.media('>tablet') {
+      font-size: 2.6rem;
+      line-height: 3.9rem;
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  &__username {
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+    color: var(--ui-accent);
+    margin-bottom: 0.6rem;
+
+    @include a.media('>tablet') {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+
+    @include a.media('>desktop') {
+      grid-row: 2;
+      margin-bottom: 0;
+    }
+  }
+
+  &__joined {
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+    color: var(--ui-text-seconday);
+
+    @include a.media('>tablet') {
+      font-size: 1.5rem;
+      line-height: 2.2rem;
+    }
+
+    @include a.media('>desktop') {
+      grid-column: 2/-1;
+      text-align: right;
+      align-self: center;
+    }
+  }
+
+  &__bio {
+    line-height: 2.5rem;
+    margin-bottom: 2.3rem;
+    margin-top: 3.3rem;
+
+    @include a.media('>tablet') {
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+      margin-bottom: 3.2rem;
+      margin-top: 2.4rem;
+    }
+
+    @include a.media('>desktop') {
+      margin-top: 2rem;
+    }
+  }
+
+  &__stats {
+    background-color: var(--ui-bg-primary);
+    border-radius: 10px;
+    padding: 1.8rem 1.4rem 1.9rem 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2.4rem;
+
+    dt {
+      font-size: 1.1rem;
+      line-height: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    dd {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      font-weight: 700;
+      color: var(--ui-text-heading);
+    }
+
+    @include a.media('>tablet') {
+      justify-content: flex-start;
+      padding: 1.5rem 3.2rem 1.7rem;
+      text-align: left;
+      margin-bottom: 3rem;
+
+      dt {
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+        margin-bottom: 0;
+      }
+
+      dd {
+        font-size: 2.2rem;
+        line-height: 3.3rem;
+      }
+    }
+
+    @include a.media('>desktop') {
+      margin-bottom: 3.9rem;
+    }
+  }
+
+  &__stat {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  &__details {
+    transition: background-color var(--t-default);
+
+    @include a.media('>tablet') {
+      font-size: 1.5rem;
+      line-height: 2.2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 1.9rem;
+      column-gap: 1.6rem;
+
+      > .list-icon__item {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

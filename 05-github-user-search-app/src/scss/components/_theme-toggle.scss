@@ -1,0 +1,45 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(../images/icon-moon.svg);
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    background-position: center;
+    margin-left: 1.6rem;
+  }
+
+  &.active {
+    &:after {
+      background-image: url(../images/icon-sun.svg);
+    }
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__label {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+    letter-spacing: 0.25rem;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,13 @@
+@use '../abstracts' as a;
+body {
+  font-family: var(--ff-main);
+  background-color: var(--ui-bg-primary);
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+  color: var(--ui-text-primary);
+
+  @include a.media('>tablet') {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+  }
+}

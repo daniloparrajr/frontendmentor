@@ -1,0 +1,5 @@
+@use 'functions' as func;
+
+@forward '../../../node_modules/include-media/dist/include-media.scss' with (
+  $breakpoints: func.im-to-em((phone: 320px, tablet: 767px, desktop: 1023px))
+);

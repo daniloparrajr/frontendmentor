@@ -1,0 +1,81 @@
+@use '../abstracts' as a;
+
+.form-search {
+  display: grid;
+  grid-template-columns: 1fr minmax(9.8rem, max-content);
+  margin-bottom: 1.6rem;
+  position: relative;
+
+  @include a.media('>tablet') {
+    grid-template-columns: 1fr minmax(11.6rem, max-content);
+    margin-bottom: 2.4rem;
+  }
+
+  .form__input {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    padding: 1.8rem 9.8rem 1.7rem 4.5rem;
+    background-image: url('../images/icon-search.svg');
+    background-repeat: no-repeat;
+    background-position: 1.6rem center;
+    background-size: 2rem;
+
+    .is-dark-theme & {
+      box-shadow: none;
+    }
+
+    @include a.media('>tablet') {
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      padding: 2.2rem 11.6rem 2.2rem 8rem;
+      background-position: 3.2rem center;
+      background-size: 2.46rem;
+    }
+
+    &.error {
+      outline: var(--ui-error-color) dashed 2px;
+    }
+  }
+
+  .form__submit {
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
+    width: auto;
+    margin: 0.65rem 0.7rem 0.75rem;
+
+    @include a.media('>tablet') {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      margin: 0.95rem 1rem 1rem;
+    }
+
+    @include a.media('>desktop') {
+      padding: 1.25rem 2.3rem 1.35rem 2.4rem;
+    }
+  }
+
+  .input-message {
+    position: absolute;
+    top: 100%;
+    left: 3.5rem;
+    color: var(--ui-text-tertiary);
+    padding: 0.5rem 1rem;
+    max-width: 100%;
+    background-color: var(--ui-error-color);
+    margin-top: 0.5rem;
+    z-index: 99;
+    border-radius: 5px;
+
+    &:before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent var(--ui-error-color) transparent;
+      position: absolute;
+      bottom: 100%;
+      left: 1rem;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use '../abstracts' as a;
+
+.app-header {
+  padding: 3.1rem 2.4rem 3.6rem;
+  max-width: var(--w-phone);
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+  @include a.media('>tablet') {
+    max-width: var(--w-tablet);
+    padding: 14rem 0 3.5rem;
+  }
+
+  @include a.media('>desktop') {
+    max-width: var(--w-desktop);
+    padding: 14.4rem 0 3.6rem;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+  }
+}
+
+.app-text-logo {
+  font-size: 2.6rem;
+  line-height: 3.9rem;
+  color: var(--ui-logo-color);
+}
