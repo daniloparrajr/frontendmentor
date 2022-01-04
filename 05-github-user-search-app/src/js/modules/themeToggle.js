@@ -42,6 +42,10 @@ export const themeToggleInit = () => {
         const toggleText = toggle.querySelector('.theme-toggle__label');
         const checkbox = toggle.querySelector('.theme-toggle__input');
 
+        toggle.addEventListener('focus', event => {
+            event.preventDefault();
+        });
+
         checkbox.addEventListener('change', e => {
             if (e.currentTarget.checked) {
                 updateSiteColorScheme('dark');

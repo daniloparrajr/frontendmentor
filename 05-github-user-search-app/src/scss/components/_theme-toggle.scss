@@ -33,6 +33,10 @@
     &:focus {
       outline: none;
     }
+
+    &:focus ~ .theme-toggle__label {
+      outline: 1px solid var(--ui-accent);
+    }
   }
 
   &__label {
