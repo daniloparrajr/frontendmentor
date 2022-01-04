@@ -3,6 +3,7 @@
 
 :root {
   color-scheme: light dark;
+  --color-mode: 'light';
 
   // Font.
   --ff-main: #{meta.inspect(a.$f__space_mono)};
@@ -37,16 +38,7 @@
   --w-phone: 45rem;
   --w-tablet: 57.3rem;
   --w-desktop: 73rem;
-}
 
-.is-dark-theme {
-  --ui-bg-primary: #{a.$c__big-stone};
-  --ui-bg-seconday: #{a.$c__cloud-burst};
-  --ui-text-primary: #{a.$c__white};
-  --ui-logo-color: #{a.$c__white};
-  --ui-text-seconday: #{a.$c__white};
-  --ui-text-tertiary: #{a.$c__white};
-  --ui-text-muted: #{a.$c__manatee};
-  --ui-text-heading: #{a.$c__white};
-  --ui-button-color: #{a.$c__white};
+  // Box Shadow.
+  --ui-box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.198567);
 }

@@ -19,6 +19,9 @@
     background-repeat: no-repeat;
     background-position: 1.6rem center;
     background-size: 2rem;
+    border-radius: 15px;
+    background-color: var(--ui-bg-seconday);
+    box-shadow: var(--ui-box-shadow);
 
     .is-dark-theme & {
       box-shadow: none;

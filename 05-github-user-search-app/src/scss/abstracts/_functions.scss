@@ -10,3 +10,7 @@
 
   @return $new-breakpoints;
 }
+
+@function rem($size, $base-value: 16px) {
+  @return math.div($size, $base-value) * 1rem;
+}

@@ -4,15 +4,11 @@
   padding: 3.2rem 2.4rem 4.8rem;
   background-color: var(--ui-bg-seconday);
   border-radius: 15px;
-  box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  box-shadow: var(--ui-box-shadow);
   display: grid;
   grid-template-columns: 7rem 1fr;
   column-gap: 1.9rem;
   transition: background-color var(--t-default);
-
-  .is-dark-theme & {
-    box-shadow: none;
-  }
 
   @include a.media('>tablet') {
     grid-template-columns: 11.7rem 1fr;
@@ -55,6 +51,7 @@
     }
 
     @include a.media('>desktop') {
+      margin-top: -0.5rem;
       align-self: start;
       display: grid;
       grid-template-columns: 1fr max-content;
@@ -182,10 +179,26 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       row-gap: 1.9rem;
-      column-gap: 1.6rem;
+      column-gap: 6rem;
 
       > .list-icon__item {
         margin-bottom: 0;
+
+        &:first-child {
+          order: 1;
+        }
+
+        &:nth-child(2) {
+          order: 3;
+        }
+
+        &:nth-child(3) {
+          order: 2;
+        }
+
+        &:nth-child(4) {
+          order: 4;
+        }
       }
     }
   }

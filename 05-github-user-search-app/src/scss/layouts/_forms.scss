@@ -12,12 +12,6 @@ input {
   }
 }
 
-input[type="search"] {
-  border-radius: 15px;
-  background-color: var(--ui-bg-seconday);
-  box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.198567);
-}
-
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,

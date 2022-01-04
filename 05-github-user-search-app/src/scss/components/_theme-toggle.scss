@@ -28,6 +28,7 @@
     cursor: pointer;
     height: 0;
     width: 0;
+    appearance: none;
 
     &:focus {
       outline: none;

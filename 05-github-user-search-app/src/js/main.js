@@ -1,6 +1,7 @@
 import {getGithubUser, showGithubUser} from './modules/github';
 import {setFieldState, showInputMessage, removeInputMessage, mediaQuery} from './modules/form';
-import {themeToggleInit} from "./modules/themeToggle";
+import {themeToggleInit, activateColorScheme} from "./modules/themeToggle";
+import {hideSpinner, showSpinner} from "./modules/_spinner";
 import '../scss/main.scss';
 
 const form = document.querySelector('#githubUserSearchForm');
@@ -8,8 +9,11 @@ const githubUsernameField = document.querySelector('#githubUsernameField');
 const resultContainer = document.querySelector('#result');
 
 const searchGithubUser = username => {
+    resultContainer.innerHTML = ""
+    showSpinner();
     getGithubUser(username).then(response => {
         removeInputMessage(githubUsernameField);
+        hideSpinner();
         if (response.ok) {
             setFieldState(githubUsernameField, 'success');
             showGithubUser(response, resultContainer);
@@ -30,6 +34,7 @@ const updateSearchForm = e => {
 
 document.addEventListener('DOMContentLoaded', () => {
     searchGithubUser('octocat');
+    activateColorScheme();
 
     form.addEventListener('submit', e => {
         e.preventDefault();

@@ -85,6 +85,12 @@ export const getUserTemplate = userData => {
         company
     } = userData;
 
+    const makeTextMuted = (tag, field) => {
+        if (field === 'Not Available') {
+            tag.parentElement.classList.add('u-text-muted');
+        }
+    }
+
     if ('content' in document.createElement('template')) {
         const template = document.querySelector('#githubUserTemplate');
         const templateClone = template.content.firstElementChild.cloneNode(true);
@@ -100,10 +106,21 @@ export const getUserTemplate = userData => {
         templateClone.querySelector('.js-github-user-repos').textContent = public_repos;
         templateClone.querySelector('.js-github-user-followers').textContent = followers;
         templateClone.querySelector('.js-github-user-following').textContent = following;
-        templateClone.querySelector('.js-github-user-location').textContent = location;
-        templateClone.querySelector('.js-github-user-blog').innerHTML = blog;
-        templateClone.querySelector('.js-github-user-twitter').textContent = twitter_username;
-        templateClone.querySelector('.js-github-user-company').innerHTML = company;
+
+        const locationTag = templateClone.querySelector('.js-github-user-location');
+        const blogTag = templateClone.querySelector('.js-github-user-blog');
+        const twitterTag = templateClone.querySelector('.js-github-user-twitter');
+        const companyTag = templateClone.querySelector('.js-github-user-company');
+
+        locationTag.textContent = location;
+        blogTag.innerHTML = blog;
+        twitterTag.textContent = twitter_username;
+        companyTag.innerHTML = company;
+
+        makeTextMuted(companyTag, company);
+        makeTextMuted(twitterTag, twitter_username);
+        makeTextMuted(blogTag, blog);
+        makeTextMuted(locationTag, location);
 
         return templateClone;
     }

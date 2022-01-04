@@ -1,0 +1,28 @@
+@use '../abstracts' as a;
+
+@mixin darkThemeStyles {
+  --ui-bg-primary: #{a.$c__big-stone};
+  --ui-bg-seconday: #{a.$c__cloud-burst};
+  --ui-text-primary: #{a.$c__white};
+  --ui-logo-color: #{a.$c__white};
+  --ui-text-seconday: #{a.$c__white};
+  --ui-text-tertiary: #{a.$c__white};
+  --ui-text-muted: #{a.$c__manatee};
+  --ui-text-heading: #{a.$c__white};
+  --ui-button-color: #{a.$c__white};
+  --ui-box-shadow: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+
+  :root:not([data-user-color-scheme]) {
+    @include darkThemeStyles;
+  }
+}
+
+[data-user-color-scheme='dark'] {
+  @include darkThemeStyles;
+}

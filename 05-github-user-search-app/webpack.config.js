@@ -65,6 +65,7 @@ const config = {
 
 if (currentTask === 'build') {
     config.mode = 'production';
+    delete config.devtool;
     config.module.rules[1].use[0] = MiniCssExtractPlugin.loader;
     config.plugins.push(new MiniCssExtractPlugin({ filename: '[name].[hash].css' }), new CleanWebpackPlugin());
 }
