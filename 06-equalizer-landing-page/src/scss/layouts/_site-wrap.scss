@@ -1,0 +1,36 @@
+@use '../abstracts' as a;
+
+.site-wrap {
+  position: relative;
+  overflow-x: hidden;
+
+  @include a.media('>tablet') {
+    &:before {
+      content: '';
+      width: a.rem(266.67px);
+      height: a.rem(400px);
+      display: block;
+      background-image: url("../images/bg-pattern-1.svg");
+      background-size: a.rem(266.67px);
+      background-repeat: no-repeat;
+      background-position: left calc(100% - #{a.rem(-35.67px)}) bottom 100%;
+      position: absolute;
+      top: a.rem(-32px);
+      right: 0;
+      z-index: -1;
+    }
+  }
+
+  @include a.media('>desktop') {
+    max-width: a.rem(1440px);
+    margin: 0 auto;
+
+    &:before {
+      background-position: initial;
+      background-size: a.rem(312px);
+      width: a.rem(312px);
+      height: a.rem(468px);
+      top: a.rem(-39px);
+    }
+  }
+}

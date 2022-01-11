@@ -1,0 +1,41 @@
+@use '../abstracts' as a;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin-bottom: a.rem(16px);
+}
+
+h1 {
+  font-size: a.rem(40px);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: a.rem(32px);
+  line-height: a.rem(40px);
+}
+
+h3 {
+  font-size: a.rem(28px);
+  line-height: a.rem(33.6px);
+}
+
+h4 {
+  font-size: a.rem(24px);
+  line-height: a.rem(28.8px);
+}
+
+h5 {
+  font-size: a.rem(20px);
+  line-height: a.rem(24px);
+}
+
+h6 {
+  font-size: a.rem(16px);
+  line-height: a.rem(19.2px);
+}

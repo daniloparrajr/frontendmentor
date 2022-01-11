@@ -1,0 +1,61 @@
+@use '../abstracts' as a;
+
+.promotion {
+  background-color: var(--color-dark);
+  border-radius: var(--border-radius);
+  padding-top: a.rem(1px);
+  margin-top: a.rem(166px);
+  background-image: url('../images/bg-pattern-2.svg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: a.rem(280px);
+  position: relative;
+
+  @include a.media('>tablet') {
+    margin: a.rem(249px) a.rem(39px) a.rem(96px) a.rem(33px);
+    padding: a.rem(1px) a.rem(58px) a.rem(182px) a.rem(64px);
+    background-position: right 50% bottom calc(100% - #{a.rem(-31px)});
+  }
+
+  @include a.media('>desktop') {
+    margin: a.rem(321px) 0 a.rem(115px);
+    padding: a.rem(1px) a.rem(95px) a.rem(171px) a.rem(102px);
+    background-position: right calc(50% + 64px) bottom calc(100% - #{a.rem(-40px)});
+    background-size: a.rem(312px);
+  }
+
+  &__img {
+    max-width: a.rem(209.97px);
+    display: block;
+    margin: a.rem(-98px) auto a.rem(48px);
+    position: relative;
+
+    @include a.media('>tablet') {
+      max-width: a.rem(270.21px);
+      margin: a.rem(-138px) 0 0;
+    }
+
+    @include a.media('>desktop') {
+      max-width: a.rem(312px);
+      margin: a.rem(-214px) 0 0;
+    }
+  }
+
+  &__card {
+    max-width: a.rem(399px);
+    margin: 0 auto;
+
+    @include a.media('>tablet') {
+      position: absolute;
+      top: a.rem(150px);
+      right: a.rem(58px);
+      z-index: 99;
+    }
+
+    @include a.media('>desktop') {
+      max-width: a.rem(446px);
+      top: a.rem(90px);
+      right: a.rem(95px);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@use '../abstracts' as a;
+
+.site-header {
+  padding: a.rem(39.99px) a.rem(24.15px);
+
+  @include a.media('>tablet') {
+    padding: a.rem(61.99px) a.rem(39.15px);
+  }
+
+  @include a.media('>desktop') {
+    max-width: a.rem(1110px);
+    margin: 0 auto;
+    padding: a.rem(61.99px) 0;
+  }
+}

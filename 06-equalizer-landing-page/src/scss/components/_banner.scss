@@ -1,0 +1,48 @@
+@use '../abstracts' as a;
+
+.banner {
+  padding: a.rem(16px) a.rem(24px) 0;
+  max-width: a.rem(520px);
+
+  @include a.media('>tablet') {
+    padding: a.rem(25.03px) 0 0 a.rem(39px);
+  }
+
+  @include a.media('>desktop') {
+    max-width: initial;
+    padding: a.rem(59px) 0 0;
+  }
+
+  &__title {
+    margin-bottom: a.rem(20px);
+    letter-spacing: a.rem(-0.727273px);
+
+    @include a.media('>tablet') {
+      font-size: a.rem(64px);
+      line-height: a.rem(64px);
+      margin-bottom: a.rem(28px);
+    }
+
+    @include a.media('>desktop') {
+      font-size: a.rem(88px);
+      line-height: a.rem(88px);
+      letter-spacing: a.rem(-1px);
+      margin-bottom: a.rem(40px);
+      max-width: a.rem(1000px);
+    }
+  }
+
+  &__text {
+    margin: 0;
+    @include a.media('>tablet') {
+      font-size: a.rem(18px);
+      line-height: a.rem(28px);
+    }
+
+    @include a.media('>desktop') {
+      max-width: a.rem(825px);
+      font-size: a.rem(20px);
+      line-height: a.rem(34px);
+    }
+  }
+}

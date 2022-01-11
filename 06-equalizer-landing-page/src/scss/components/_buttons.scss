@@ -1,0 +1,35 @@
+@use '../abstracts' as a;
+
+.btn {
+  padding: a.rem(15px);
+  display: flex;
+  align-items: center;
+  color: var(--color-light);
+  font-weight: 700;
+  justify-content: center;
+  border-radius: var(--border-radius);
+
+  @include a.media('>tablet') {
+    font-size: a.rem(18px);
+    line-height: a.rem(32px);
+    letter-spacing: a.rem(-0.18px);
+  }
+
+  &--block {
+    width: 100%;
+  }
+
+  &--dark {
+    background-color: var(--color-dark);
+  }
+
+  &--light {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+  }
+
+  .svg-icon {
+    margin-right: a.rem(7.8px);
+  }
+}
+

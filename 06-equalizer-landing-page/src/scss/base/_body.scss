@@ -1,0 +1,22 @@
+@use '../abstracts' as a;
+
+body {
+  font-size: a.rem(16px);
+  font-family: var(--font-main);
+  line-height: a.rem(26px);
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  background-image: url('../images/bg-main-mobile.png');
+  background-repeat: no-repeat;
+  background-position: 100px -230px;
+
+  @include a.media('>tablet') {
+    background-position: -260px -250px;
+    background-image: url('../images/bg-main-tablet.png');
+  }
+
+  @include a.media('>desktop') {
+    background-position: right calc(50%) top a.rem(-300px);
+    background-image: url('../images/bg-main-desktop.png');
+  }
+}

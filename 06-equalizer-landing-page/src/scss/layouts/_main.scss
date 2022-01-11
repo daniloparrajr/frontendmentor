@@ -1,0 +1,8 @@
+@use '../abstracts' as a;
+
+.site-main {
+  @include a.media('>desktop') {
+    max-width: a.rem(1110px);
+    margin: 0 auto;
+  }
+}
