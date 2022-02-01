@@ -1,0 +1,21 @@
+@use '../abstracts' as a;
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding-left: a.rem(16px);
+  padding-right: a.rem(16px);
+
+  @include a.media('>tablet') {
+    padding-left: a.rem(40px);
+    padding-right: a.rem(40px);
+    max-width: a.rem(768px);
+  }
+
+  @include a.media('>desktop') {
+    max-width: a.rem(1110px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

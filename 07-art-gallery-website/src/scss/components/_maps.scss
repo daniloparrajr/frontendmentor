@@ -1,0 +1,10 @@
+@use '../abstracts' as a;
+
+.map {
+  width: 100%;
+  min-height: a.rem(550px);
+
+  @include a.media('>tablet') {
+    min-height: a.rem(600px);
+  }
+}

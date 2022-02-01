@@ -1,0 +1,20 @@
+@use '../abstracts' as a;
+
+.text-logo {
+  font-size: a.rem(22px);
+  line-height: 1;
+  color: inherit;
+
+  @include a.media('>tablet') {
+    font-size: a.rem(24px);
+  }
+
+  @include a.media('>desktop') {
+    font-size: a.rem(34px);
+  }
+
+  &--lg {
+    font-size: a.rem(60px);
+    line-height: a.rem(55px);
+  }
+}

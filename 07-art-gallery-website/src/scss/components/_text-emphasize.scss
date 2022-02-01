@@ -1,0 +1,17 @@
+@use '../abstracts' as a;
+
+.text-emphasize {
+  font-size: a.rem(32px);
+  font-weight: 900;
+  font-family: var(--ff-heading);
+  line-height: a.rem(32px);
+  text-transform: uppercase;
+  color: var(--c-primary);
+  margin-bottom: a.rem(20px);
+
+  @include a.media('>desktop') {
+    font-size: a.rem(36px);
+    line-height: a.rem(36px);
+    margin-bottom: a.rem(24px);
+  }
+}

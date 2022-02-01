@@ -1,0 +1,47 @@
+@use '../abstracts' as a;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+  font-family: var(--ff-heading);
+  color: var(--c-secondary);
+  margin-bottom: a.rem(16px);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: a.rem(60px);
+  line-height: a.rem(55px);
+}
+
+h2 {
+  font-weight: 900;
+  font-size: a.rem(50px);
+  line-height: a.rem(45px);
+  margin-bottom: a.rem(21px);
+}
+
+h3 {
+  font-size: a.rem(28px);
+  line-height: a.rem(33.6px);
+}
+
+h4 {
+  font-size: a.rem(24px);
+  line-height: a.rem(28.8px);
+}
+
+h5 {
+  font-size: a.rem(20px);
+  line-height: a.rem(24px);
+}
+
+h6 {
+  font-size: a.rem(16px);
+  line-height: a.rem(19.2px);
+}

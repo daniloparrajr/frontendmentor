@@ -1,0 +1,34 @@
+@use '../abstracts' as a;
+
+.cta {
+  background-color: var(--c-secondary);
+  color: var(--c-white);
+  padding: a.rem(48px) a.rem(24px);
+
+  &__title {
+    color: var(--c-white);
+  }
+
+  &__text {
+    margin: 0;
+  }
+
+  @include a.media('>tablet') {
+    padding: a.rem(85px) a.rem(28px);
+  }
+
+  @include a.media('>desktop') {
+    padding: a.rem(65px) a.rem(48px);
+
+    &__title {
+      font-size: a.rem(60px);
+      line-height: a.rem(60px);
+      margin-bottom: a.rem(32px);
+    }
+
+    &__text {
+      font-size: a.rem(22px);
+      line-height: a.rem(32px);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@use '../abstracts' as a;
+
+body {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: a.rem(18px);
+  line-height: a.rem(28px);
+  color: var(--c-tertiary);
+}
+
+:focus {
+  outline: 2px dashed var(--c-primary);
+  outline-offset: 5px;
+}

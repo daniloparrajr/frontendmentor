@@ -1,0 +1,28 @@
+@use '../abstracts' as a;
+
+.gallery-grid {
+  display: grid;
+  row-gap: a.rem(16px);
+  margin-bottom: a.rem(120px);
+
+  @include a.media('>tablet') {
+    row-gap: a.rem(11px);
+    column-gap: a.rem(11px);
+    grid-template-columns: minmax(#{a.rem(398px)}, 1fr) minmax(#{a.rem(280px)}, 1fr);
+    grid-template-rows: a.rem(313px);
+
+    &__item--primary {
+      grid-row: 1 / span 2;
+    }
+
+    .cta {
+      height: 100%;
+    }
+  }
+
+  @include a.media('>desktop') {
+    row-gap: a.rem(30px);
+    column-gap: a.rem(30px);
+    grid-template-columns: minmax(#{a.rem(635px)}, 1fr) minmax(#{a.rem(445px)}, 1fr);
+  }
+}

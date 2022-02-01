@@ -1,0 +1,8 @@
+.site-nav {
+  display: flex;
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}

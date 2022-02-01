@@ -1,0 +1,23 @@
+@use '../abstracts' as a;
+
+.list-social {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  > li:not(:first-child) {
+    margin-left: a.rem(20px);
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+.list-unstyled {
+  margin-left: 0;
+  margin-bottom: a.rem(20px);
+  padding: 0;
+  list-style: none;
+}
