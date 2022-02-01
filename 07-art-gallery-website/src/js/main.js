@@ -16,7 +16,7 @@ ScrollTrigger.matchMedia({
             {
                 x:-30,
                 opacity: 0,
-                duration: 0.5
+                duration: 0.3
             })
             .from(
                 '.hero-banner__title',

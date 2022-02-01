@@ -24,5 +24,6 @@
     row-gap: a.rem(30px);
     column-gap: a.rem(30px);
     grid-template-columns: minmax(#{a.rem(635px)}, 1fr) minmax(#{a.rem(445px)}, 1fr);
+    margin-bottom: a.rem(180px);
   }
 }
