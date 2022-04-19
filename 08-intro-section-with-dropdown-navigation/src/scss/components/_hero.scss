@@ -1,0 +1,21 @@
+@use '../abstracts' as a;
+
+.hero {
+  &-image-wrap {
+    margin-bottom: a.rem(47px);
+  }
+
+  &-content-wrap {
+    text-align: center;
+    padding: a.rem(16px);
+  }
+
+  &-title {
+    font-size: a.rem(36px);
+    line-height: a.rem(42px);
+  }
+
+  &-description {
+    margin-bottom: a.rem(24px);
+  }
+}

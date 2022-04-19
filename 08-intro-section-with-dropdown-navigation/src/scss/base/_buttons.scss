@@ -1,0 +1,18 @@
+@use '../abstracts' as a;
+
+button,
+input[type="button"],
+.btn {
+  color: var(--ui-btn-color);
+  background-color: var(--ui-btn-bg);
+  border: 1px solid var(--ui-btn-border-color);
+  padding: a.rem(13px) a.rem(22px);
+  border-radius: var(--ui-border-radius);
+  display: inline-block;
+}
+
+.btn {
+  &-lg {
+    padding: a.rem(12px) a.rem(24px) a.rem(10px);
+  }
+}

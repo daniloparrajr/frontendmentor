@@ -1,0 +1,12 @@
+@use '../abstracts' as a;
+
+.site-logo {
+  &-text {
+    display: block;
+    text-transform: lowercase;
+    margin: 0;
+    font-size: a.rem(35px);
+    line-height: a.rem(35px);
+    letter-spacing: a.rem(-0.486111px);
+  }
+}

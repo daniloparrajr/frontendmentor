@@ -1,0 +1,24 @@
+@use '../abstracts' as a;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: a.rem(16px);
+  font-family: var(--f-primary);
+  font-weight: 500;
+  line-height: a.rem(26px);
+  color: var(--ui-text-primary);
+}
+
+img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+}
+
+.img-responsive {
+  width: 100%;
+  display: block;
+}

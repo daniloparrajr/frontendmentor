@@ -1,0 +1,17 @@
+:root {
+  --c-almost-white: hsl(0, 0%, 98%);
+  --c-medium-gray: hsl(0, 0%, 41%);
+  --c-almost-black: hsl(0, 0%, 8%);
+
+  --f-primary: 'Epilogue', sans-serif;
+
+  --ui-text-primary: var(--c-medium-gray);
+  --ui-text-secondary: var(--c-almost-black);
+  --ui-text-tertiary: var(--c-almost-white);
+
+  --ui-btn-bg: var(--c-almost-black);
+  --ui-btn-color: var(--c-almost-white);
+  --ui-btn-border-color: var(--c-almost-black);
+
+  --ui-border-radius: 15px;
+}
