@@ -1,6 +1,7 @@
 @use '../abstracts' as a;
 
 .hero {
+  padding-bottom: a.rem(94px);
   &-image-wrap {
     margin-bottom: a.rem(47px);
   }
@@ -17,5 +18,15 @@
 
   &-description {
     margin-bottom: a.rem(24px);
+  }
+
+  &-clients {
+    margin-top: a.rem(48px);
+    display: flex;
+    gap: a.rem(28px);
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
   }
 }
