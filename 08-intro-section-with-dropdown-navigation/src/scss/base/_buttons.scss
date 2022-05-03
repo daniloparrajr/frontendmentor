@@ -9,6 +9,16 @@ input[type="button"],
   padding: a.rem(13px) a.rem(22px);
   border-radius: var(--ui-border-radius);
   display: inline-block;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: all var(--ui-transition);
+
+  &:active,
+  &:focus,
+  &:hover {
+    --ui-btn-bg: transparent;
+    --ui-btn-color: var(--c-almost-black);
+  }
 }
 
 .btn {

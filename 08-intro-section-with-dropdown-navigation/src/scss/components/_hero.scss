@@ -2,31 +2,86 @@
 
 .hero {
   padding-bottom: a.rem(94px);
-  &-image-wrap {
-    margin-bottom: a.rem(47px);
+  max-width: a.rem(425px);
+  margin-left: auto;
+  margin-right: auto;
+
+  @include a.media('>desktop') {
+    display: flex;
+    justify-content: space-between;
+    max-width: a.rem(1145px);
+    margin-top: a.rem(43px);
+    padding-bottom: a.rem(130px);
+  }
+
+  &-image {
+    display: block;
+    width: 100%;
+
+    &-wrap {
+      margin-bottom: a.rem(47px);
+    }
+
+    @include a.media('>desktop') {
+      max-width: a.rem(480px);
+
+      &-wrap {
+        order: 1;
+        margin-bottom: 0;
+      }
+    }
   }
 
   &-content-wrap {
     text-align: center;
     padding: a.rem(16px);
+
+    @include a.media('>desktop') {
+      text-align: left;
+      max-width: a.rem(515px);
+      padding: 0;
+      margin-top: a.rem(147px);
+    }
   }
 
   &-title {
     font-size: a.rem(36px);
     line-height: a.rem(42px);
+
+    @include a.media('>desktop') {
+      font-size: a.rem(80px);
+      line-height: a.rem(80px);
+      letter-spacing: a.rem(-1.11111px);
+      margin-bottom: a.rem(48px);
+    }
   }
 
   &-description {
     margin-bottom: a.rem(24px);
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    @include a.media('>desktop') {
+      max-width: a.rem(445px);
+      margin-bottom: a.rem(51px);
+    }
   }
 
   &-clients {
-    margin-top: a.rem(48px);
     display: flex;
     gap: a.rem(28px);
     justify-content: space-between;
+    align-items: center;
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
+    margin-top: a.rem(48px);
+
+    @include a.media('>desktop') {
+      max-width: a.rem(477px);
+      margin-top: a.rem(108px);
+    }
   }
 }

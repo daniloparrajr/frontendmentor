@@ -10,6 +10,11 @@ body {
   font-weight: 500;
   line-height: a.rem(26px);
   color: var(--ui-text-primary);
+
+  @include a.media('>desktop') {
+    font-size: a.rem(18px);
+    line-height: a.rem(28px);
+  }
 }
 
 img {

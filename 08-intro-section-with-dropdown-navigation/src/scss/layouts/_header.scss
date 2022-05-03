@@ -6,4 +6,11 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: a.rem(8px);
+
+  @include a.media('>desktop-l') {
+    padding: a.rem(24px) a.rem(40px);
+    max-width: a.rem(1440px);
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
