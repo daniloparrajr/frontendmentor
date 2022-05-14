@@ -12,6 +12,7 @@ input[type="button"],
   line-height: 1.2;
   cursor: pointer;
   transition: all var(--ui-transition);
+  text-align: center;
 
   &:active,
   &:focus,
@@ -24,5 +25,16 @@ input[type="button"],
 .btn {
   &-lg {
     padding: a.rem(12px) a.rem(24px) a.rem(10px);
+  }
+
+  &-border {
+    --ui-btn-bg: var(--c-almost-white);
+    --ui-btn-border-color: var(--c-medium-gray);
+    --ui-btn-color: var(--c-medium-gray);
+
+    &:hover {
+      --ui-btn-border-color: var(--c-almost-black);
+      --ui-btn-color: var(--c-almost-black);
+    }
   }
 }

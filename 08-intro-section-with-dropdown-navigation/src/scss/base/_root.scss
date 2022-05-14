@@ -1,4 +1,5 @@
 :root {
+  --c-white: hsl(0, 0%, 100%);
   --c-almost-white: hsl(0, 0%, 98%);
   --c-medium-gray: hsl(0, 0%, 41%);
   --c-almost-black: hsl(0, 0%, 8%);
@@ -15,4 +16,6 @@
 
   --ui-border-radius: 15px;
   --ui-transition: 300ms ease-in-out;
+  --ui-background-color: var(--c-almost-white);
+  --ui-box-shadow: 0 10px 40px rgba(0, 0, 0, 0.149126);
 }

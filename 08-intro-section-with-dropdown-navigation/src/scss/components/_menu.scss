@@ -1,0 +1,132 @@
+@use '../abstracts' as a;
+
+.submenu,
+.menu {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.menu {
+  margin-bottom: 0;
+
+  > .menu-item {
+
+    @include a.media('<tablet') {
+      &:not(:first-child) {
+        margin-top: a.rem(16px);
+      }
+    }
+
+    @include a.media('>desktop') {
+      > .menu-link:not(.btn) {
+        padding-bottom: a.rem(20px);
+        padding-top: a.rem(20px);
+      }
+    }
+  }
+
+  .menu-link {
+    display: block;
+    font-size: a.rem(16px);
+    font-weight: 500;
+    line-height: a.rem(26px);
+
+    @include a.media('>tablet') {
+      font-size: a.rem(14px);
+      line-height: a.rem(16px);
+    }
+
+    &.has-icon {
+      display: flex;
+      align-items: center;
+      gap: a.rem(15px);
+    }
+  }
+
+  .submenu-toggle {
+    font-size: 1em;
+  }
+
+  .submenu {
+    display: none;
+    padding: a.rem(24px);
+
+    > .menu-item:not(:first-child) {
+      margin-top: a.rem(16px);
+    }
+
+    @include a.media('>tablet') {
+      border-radius: 10px;
+      box-shadow: var(--ui-box-shadow);
+      background-color: var(--c-white);
+      width: a.rem(116px);
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+
+    @include a.media('<tablet') {
+      &.is-active {
+        display: block;
+      }
+    }
+  }
+
+  .has-submenu {
+    position: relative;
+
+    > .menu-link {
+      display: flex;
+      align-items: center;
+      gap: a.rem(9px);
+
+      @include a.media('>tablet') {
+        &:focus + .submenu {
+          display: block;
+        }
+      }
+
+      .icon {
+        font-size: a.rem(8px);
+      }
+    }
+
+    @include a.media('>tablet') {
+      &:focus-within > .submenu {
+        display: block;
+      }
+
+      &:hover {
+        > .submenu {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.menu-main {
+  margin-top: a.rem(32px);
+
+  @include a.media('>tablet') {
+    display: flex;
+    align-items: center;
+    gap: a.rem(30px);
+    margin-top: 0;
+
+    > .menu-item:nth-child(5) {
+      margin-left: auto;
+    }
+
+    > .menu-item:first-child {
+      > .submenu {
+        width: a.rem(153px);
+      }
+    }
+  }
+
+  @include a.media('>desktop') {
+    gap: a.rem(40px);
+  }
+}

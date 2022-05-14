@@ -5,12 +5,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: a.rem(60px);
   margin-bottom: a.rem(8px);
 
   @include a.media('>desktop-l') {
-    padding: a.rem(24px) a.rem(40px);
+    padding: a.rem(14px) a.rem(40px);
     max-width: a.rem(1440px);
     margin-right: auto;
     margin-left: auto;
   }
+
+  body.nav-is-active & {
+    position: relative;
+    z-index: 99999;
+  }
+}
+
+.site-logo {
+  flex-basis: a.rem(87px);
 }

@@ -1,4 +1,83 @@
+@use '../abstracts' as a;
+
 .site-nav {
+  flex-grow: 1;
+  min-width: 0;
+
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+
+  @include a.media('>tablet') {
+    display: block;
+  }
+
+  .nav-menu-open {
+    font-size: a.rem(32px);
+  }
+
+  .nav-menu-close {
+    font-size: a.rem(24px);
+    margin-left: auto;
+    display: block;
+  }
+
+  .submenu-toggle,
+  .nav-menu-close,
+  .nav-menu-open {
+    --ui-btn-bg: var(--c-almost-white);
+    --ui-btn-border-color: var(--c-almost-white);
+    --ui-btn-color: var(--c-almost-black);
+    border-radius: 0;
+    padding: 0;
+
+    .icon {
+      display: block;
+    }
+
+    @include a.media('>tablet') {
+      display: none;
+    }
+  }
+
+  @include a.media('<tablet') {
+    body.nav-is-active &::after {
+      content: '';
+      background-color: var(--c-almost-black);
+      mix-blend-mode: normal;
+      opacity: 0.75;
+      position: fixed;
+      width: 100%;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+  }
+
+}
+
+.nav {
+  display: none;
+
+  @include a.media('<tablet') {
+    body.nav-is-active & {
+      display: block;
+      position: fixed;
+      background-color: var(--c-white);
+      width: 100%;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 98;
+      max-width: a.rem(240px);
+      overflow-y: scroll;
+      padding: a.rem(22px) a.rem(20px) a.rem(22px) a.rem(24px);
+    }
+  }
+
+  @include a.media('>tablet') {
+    display: block;
+  }
 }

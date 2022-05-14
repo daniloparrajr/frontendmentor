@@ -10,10 +10,15 @@ body {
   font-weight: 500;
   line-height: a.rem(26px);
   color: var(--ui-text-primary);
+  background-color: var(--ui-background-color);
 
   @include a.media('>desktop') {
     font-size: a.rem(18px);
     line-height: a.rem(28px);
+  }
+
+  &.nav-is-active {
+    overflow-y: hidden;
   }
 }
 
@@ -26,4 +31,8 @@ img {
 .img-responsive {
   width: 100%;
   display: block;
+}
+
+*:focus {
+  border: 1px dashed var(--c-almost-black);
 }

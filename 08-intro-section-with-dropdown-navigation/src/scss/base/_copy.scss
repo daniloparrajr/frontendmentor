@@ -9,3 +9,14 @@ ol, ul {
   padding-left: a.rem(30px);
   margin-bottom: a.rem(16px);
 }
+
+a {
+  cursor: pointer;
+  transition: all var(--ui-transition);
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: var(--ui-text-secondary);
+  }
+}
