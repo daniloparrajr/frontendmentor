@@ -41,18 +41,26 @@
   }
 
   @include a.media('<tablet') {
-    body.nav-is-active &::after {
+    .nav-is-closing &::after,
+    .nav-is-open &::after {
       content: '';
-      background-color: var(--c-almost-black);
+      background-color: hsla(0, 0%, 8%, 0.75);
       mix-blend-mode: normal;
-      opacity: 0.75;
       position: fixed;
       width: 100%;
       left: 0;
       right: 0;
       top: 0;
       bottom: 0;
-      z-index: -1;
+      z-index: 97;
+    }
+
+    .nav-is-open &::after {
+      animation: fadeIn 0.3s forwards;
+    }
+
+    .nav-is-closing &::after {
+      animation: fadeOut 0.3s forwards;
     }
   }
 
@@ -62,7 +70,12 @@
   display: none;
 
   @include a.media('<tablet') {
-    body.nav-is-active & {
+    .nav-is-close & {
+      display: none;
+    }
+
+    .nav-is-closing &,
+    .nav-is-open & {
       display: block;
       position: fixed;
       background-color: var(--c-white);
@@ -74,6 +87,14 @@
       max-width: a.rem(240px);
       overflow-y: scroll;
       padding: a.rem(22px) a.rem(20px) a.rem(22px) a.rem(24px);
+    }
+
+    .nav-is-open & {
+      animation: slideIn 0.3s forwards;
+    }
+
+    .nav-is-closing & {
+      animation: slideOut 0.3s forwards;
     }
   }
 

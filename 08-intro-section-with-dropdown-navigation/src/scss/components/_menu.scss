@@ -49,14 +49,19 @@
   }
 
   .submenu {
-    display: none;
-    padding: a.rem(24px);
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--ui-transition), visibility var(--ui-transition);
 
     > .menu-item:not(:first-child) {
       margin-top: a.rem(16px);
     }
 
     @include a.media('>tablet') {
+      padding: a.rem(24px);
+      display: block;
       border-radius: 10px;
       box-shadow: var(--ui-box-shadow);
       background-color: var(--c-white);
@@ -64,11 +69,17 @@
       position: absolute;
       top: 100%;
       left: 0;
+      max-height: initial;
+      overflow: initial;
     }
 
     @include a.media('<tablet') {
       &.is-active {
         display: block;
+        padding: a.rem(24px);
+        visibility: visible;
+        opacity: 1;
+        max-height: initial;
       }
     }
   }
@@ -83,7 +94,9 @@
 
       @include a.media('>tablet') {
         &:focus + .submenu {
-          display: block;
+          visibility: visible;
+          opacity: 1;
+          left: 0;
         }
       }
 
@@ -94,12 +107,16 @@
 
     @include a.media('>tablet') {
       &:focus-within > .submenu {
-        display: block;
+        visibility: visible;
+        opacity: 1;
+        left: 0;
       }
 
       &:hover {
         > .submenu {
-          display: block;
+          visibility: visible;
+          opacity: 1;
+          left: 0;
         }
       }
     }
