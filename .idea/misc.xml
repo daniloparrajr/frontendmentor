@@ -6,6 +6,6 @@
     </option>
   </component>
   <component name="WebPackConfiguration">
-    <option name="mode" value="DISABLED" />
+    <option name="mode" value="AUTO" />
   </component>
 </project>
