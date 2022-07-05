@@ -1,0 +1,6 @@
+@use '../../abstracts' as a;
+
+.app-section {
+  padding-left: a.rem(24px);
+  padding-right: a.rem(24px);
+}

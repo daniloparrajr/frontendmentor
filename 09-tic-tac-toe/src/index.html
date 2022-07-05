@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+	<title>Frontend Mentor | Tic Tac Toe</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<h1 class="screen-reader-text">Frontend Mentor | Tic Tac Toe</h1>
+	<main class="app-main">
+		<section class="app-section app-section-menu-start" aria-label="New Game Menu">
+			<header class="app-section__header">
+				<img class="app-logo" src="./images/logo.svg" alt="Tic Tac Toe Logo">
+			</header>
+
+			<div class="app-player-mark-picker">
+				<p class="subtitle subtitle--lg">Pick player 1's mark</p>
+
+				<label class="toggle" for="playerOneMark">
+					<input type="checkbox" id="playerOneMark" name="playerOneMark" value="cross">
+					<span class="slider"></span>
+				</label>
+
+				<p class="helper-text">Remember: X goes first</p>
+			</div>
+
+			<button class="btn--block btn--primary" id="newGameVsCPU">New Game (vs CPU)</button>
+			<button class="btn--block btn--secondary" id="newGameVsPlayer">New Game (vs player)</button>
+		</section>
+
+		<section class="app-section app-section-game-board" aria-label="Game board" style="display: none;">
+			<header>
+				<img class="app-logo" src="./images/logo.svg" alt="Tic Tac Toe">
+				<span><!-- x/o icon --> turn</span>
+				<button><img src="./images/icon-restart.svg" alt="restart icon"></button>
+			</header>
+		</section>
+	</main>
+</body>
+</html>

@@ -1,0 +1,17 @@
+@use '../../abstracts' as a;
+
+.app-section-menu-start {
+  .app-section__header {
+    margin-bottom: a.rem(32px);
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.app-player-mark-picker {
+  background: var(--color-tertiary-alt);
+  box-shadow: inset 0px -8px 0px #10212A;
+  border-radius: 15px;
+  padding: a.rem(24px);
+  text-align: center;
+}

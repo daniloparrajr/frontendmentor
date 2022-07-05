@@ -1,0 +1,24 @@
+:root {
+  --font-primary: 'Outfit', sans-serif;
+
+  --color-dark-navy: #1A2A33;
+  --color-semi-dark-navy: #1F3641;
+  --color-silver: #A8BFC9;
+  --color-silver-hover: #DBE8ED;
+  --color-light-blue: #31C3BD;
+  --color-light-blue-hover: #65E9E4;
+  --color-light-yellow: #F2B137;
+  --color-light-yellow-hover: #FFC860;
+
+  --color-primary: var(--color-light-blue);
+  --color-primary-alt: var(--color-light-blue-hover);
+  --color-secondary: var(--color-light-yellow);
+  --color-secondary-alt: var(--color-light-yellow-hover);
+  --color-tertiary: var(--color-dark-navy);
+  --color-tertiary-alt: var(--color-semi-dark-navy);
+  --color-quaternary: var(--color-silver);
+  --color-quaternary-alt: var(--color-silver-hover);
+
+  --ui-btn-color: var(--color-tertiary);
+  --ui-btn-background: var(--color-quaternary);
+}

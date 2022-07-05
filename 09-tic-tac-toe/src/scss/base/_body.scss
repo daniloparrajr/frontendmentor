@@ -1,0 +1,14 @@
+@use '../abstracts' as a;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: a.rem(16px);
+  font-family: var(--font-primary);
+  font-weight: 500;
+  line-height: 1.5;
+  background-color: var(--color-dark-navy);
+  color: var(--color-silver);
+}
