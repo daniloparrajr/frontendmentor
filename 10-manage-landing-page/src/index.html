@@ -2,22 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
-	<title>Frontend Mentor | Manage landing page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <title>Frontend Mentor | Manage landing page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<header class="container mt-14 flex justify-between items-center mb-30">
+    <a href="#"><img src="./img/logo.svg" alt="Manage logo"></a>
 
-Pricing
-Product
-About Us
-Careers
-Community
+    <nav class="flex space-x-5 text-dark-blue font-medium">
+        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Pricing</a>
+        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Product</a>
+        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">About Us</a>
+        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Careers</a>
+        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Community</a>
+    </nav>
 
-Get Started
+    <a class="btn" href="#">Get Started</a>
+</header>
 
-Bring everyone together to build better products.
+<main class="site-main">
+    <section id="banner">
+        <div class="container flex justify-between">
+            <div class="w-[445px]">
+                <h1 class="text-xl font-bold text-dark-blue mb-7">Bring everyone together to build better products.</h1>
+                <p class="mb-7">Manage makes it simple for software teams to plan day-to-day tasks while keeping the larger team goals in view.</p>
+                <a class="btn" href="#">Get Started</a>
+            </div>
+            <div class="w-[540px]">
+                <img src="./img/illustration-intro.svg" alt="">
+            </div>
+        </div>
+    </section>
+</main>
+
 
 Manage makes it simple for software teams to plan day-to-day
 tasks while keeping the larger team goals in view.
