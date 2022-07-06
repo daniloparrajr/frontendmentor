@@ -1,0 +1,19 @@
+.swiper {
+    --swiper-theme-color: theme(colors.bright-red);
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: 0;
+}
+
+.swiper-pagination-bullet {
+    border: 1px solid var(--swiper-theme-color);
+    background-color: transparent;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--swiper-theme-color);
+}
