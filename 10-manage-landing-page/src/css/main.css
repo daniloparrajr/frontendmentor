@@ -2,10 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply text-dark-grayish-blue text-base;
+@layer base {
+    body {
+        @apply text-dark-grayish-blue text-base;
+    }
+
+    h1, h2, h3, h4, h5 {
+        @apply text-dark-blue font-bold;
+    }
+
+    a {
+        @apply cursor-pointer transition-colors hover:text-bright-red;
+    }
 }
 
-.btn {
-    @apply inline-block font-bold text-xs rounded-full py-3 px-8 bg-bright-red text-white;
+@layer components {
+    .btn {
+        @apply inline-block shadow-2xl font-bold text-xs rounded-full py-3 px-8 bg-bright-red text-white transition-all hover:bg-light-red hover:text-white cursor-pointer;
+    }
+
+    .btn-secondary {
+        @apply text-bright-red bg-white;
+        box-shadow: 0 15px 15px -10px #DB5943;
+    }
 }

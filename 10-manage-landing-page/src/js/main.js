@@ -1,6 +1,6 @@
-import { helloWorld } from './modules/helpers';
+import { setupSlider } from './modules/slider';
 import '../css/main.css';
 
 document.addEventListener('DOMContentLoaded', () => {
-    helloWorld();
+    setupSlider('#testimonialsSlider');
 });
