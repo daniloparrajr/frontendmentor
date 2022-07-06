@@ -1,7 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import '/plugins/swiper.css';
+@import './plugins/swiper.css';
+@import './plugins/hamburgers.css';
 
 @layer base {
     body {
@@ -25,6 +26,10 @@
     .btn-secondary {
         @apply text-bright-red bg-white;
         box-shadow: 0 15px 15px -10px #DB5943;
+    }
+
+    #navigation.is-active {
+        display: block;
     }
 }
 

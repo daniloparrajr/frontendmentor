@@ -35,6 +35,8 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
+    "hamburgers": "^1.2.1",
+    "postcss-nested": "^5.0.6",
     "swiper": "^8.2.6"
   }
 }

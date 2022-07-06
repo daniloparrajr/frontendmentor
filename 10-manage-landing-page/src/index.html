@@ -14,7 +14,13 @@
 <header id="siteHeader" class="container flex justify-between items-center px-6 pt-10 lg:pt-14 lg:px-0 mb-12 lg:mb-30">
     <a href="#"><img src="./img/logo.svg" alt="Manage logo"></a>
 
-    <nav class="hidden flex space-x-4 lg:space-x-8 text-dark-blue font-medium md:block">
+    <button id="menuToggle" class="md:hidden hamburger hamburger--squeeze" type="button" aria-label="Menu" aria-controls="navigation">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+    </button>
+
+    <nav id="navigation" class="hidden flex space-x-4 lg:space-x-8 text-dark-blue font-medium md:block">
         <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Pricing</a>
         <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Product</a>
         <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">About Us</a>
@@ -28,12 +34,12 @@
 <main id="siteMain" class="site-main">
     <section id="banner" class="mb-15 lg:mb-30">
         <div class="container px-6 lg:px-0 flex flex-col-reverse items-center text-center lg:text-left lg:flex-row lg:items-start lg:justify-between">
-            <div class="lg:max-w-md">
+            <div class="max-w-lg lg:max-w-md">
                 <h1 class="text-xl mb-2 lg:mb-7 lg:text-2xl tracking-tighter font-bold">Bring everyone together to build better products.</h1>
                 <p class="mb-7 lg:max-w-sm">Manage makes it simple for software teams to plan day-to-day tasks while keeping the larger team goals in view.</p>
                 <a class="btn" href="#">Get Started</a>
             </div>
-            <div class="lg:max-w-lg mb-5 lg:mb-0">
+            <div class="max-w-lg mb-5 lg:mb-0">
                 <img src="./img/illustration-intro.svg" alt="">
             </div>
         </div>
@@ -173,7 +179,6 @@
         </div>
     </div>
 </footer>
-
 
 </body>
 </html>
