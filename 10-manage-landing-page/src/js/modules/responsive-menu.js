@@ -1,9 +1,8 @@
-export const menuInit = ( triggerEl, navEl ) => {
+export const menuInit = ( triggerEl ) => {
     triggerEl = document.querySelector(triggerEl);
-    navEl = document.querySelector(navEl);
 
     triggerEl.addEventListener('click', function() {
         this.classList.toggle('is-active');
-        navEl.classList.toggle('is-active');
+        document.body.classList.toggle('mobile-menu-active');
     });
 }

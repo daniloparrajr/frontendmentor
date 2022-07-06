@@ -8,8 +8,8 @@ module.exports = {
             center: true,
         },
 		screens: {
-			lg: '1110px',
             md: '768px',
+			lg: '1110px',
 		},
 		fontFamily: {
 			'sans': ['Be Vietnam Pro', ...defaultTheme.fontFamily.sans]

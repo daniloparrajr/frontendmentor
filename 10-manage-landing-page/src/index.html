@@ -12,7 +12,7 @@
 <body>
 
 <header id="siteHeader" class="container flex justify-between items-center px-6 pt-10 lg:pt-14 lg:px-0 mb-12 lg:mb-30">
-    <a href="#"><img src="./img/logo.svg" alt="Manage logo"></a>
+    <a href="#"><img class="w-28 lg:w-auto" src="./img/logo.svg" alt="Manage logo"></a>
 
     <button id="menuToggle" class="md:hidden hamburger hamburger--squeeze" type="button" aria-label="Menu" aria-controls="navigation">
           <span class="hamburger-box">
@@ -20,12 +20,12 @@
           </span>
     </button>
 
-    <nav id="navigation" class="hidden flex space-x-4 lg:space-x-8 text-dark-blue font-medium md:block">
-        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Pricing</a>
-        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Product</a>
-        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">About Us</a>
-        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Careers</a>
-        <a class="text-xs transition-colors hover:text-dark-grayish-blue" href="#">Community</a>
+    <nav id="navigation" class="hidden md:flex space-y-6 md:space-y-0 md:space-x-4 lg:space-x-8 text-dark-blue font-medium">
+        <a class="block font-bold text-base md:text-xs transition-colors hover:text-dark-grayish-blue" href="#">Pricing</a>
+        <a class="block font-bold text-base md:text-xs transition-colors hover:text-dark-grayish-blue" href="#">Product</a>
+        <a class="block font-bold text-base md:text-xs transition-colors hover:text-dark-grayish-blue" href="#">About Us</a>
+        <a class="block font-bold text-base md:text-xs transition-colors hover:text-dark-grayish-blue" href="#">Careers</a>
+        <a class="block font-bold text-base md:text-xs transition-colors hover:text-dark-grayish-blue" href="#">Community</a>
     </nav>
 
     <a class="btn hidden md:block" href="#">Get Started</a>
@@ -170,8 +170,8 @@
         </div>
 
         <div class="flex flex-col items-center lg:justify-between lg:items-end lg:w-1/3">
-            <form action="#" class="space-x-2">
-                <input class="py-3 px-4 rounded-full text-xs" type="text" placeholder="Updates in your inbox…">
+            <form id="newsletter" action="#" class="space-x-2 relative">
+                <input required id="email" class="py-3 px-4 text-dark-grayish-blue rounded-full text-xs" type="email" placeholder="Updates in your inbox…">
                 <input type="submit" value="Go" class="btn shadow-none">
             </form>
 
