@@ -1,45 +1,59 @@
-const newsletterForm = document.querySelector('#newsletter');
-const emailField = newsletterForm.querySelector('#email');
+const removeErrorMessage = input => {
+    const inputId = input.getAttribute('id');
+    const message = document.querySelector(`[data-input-field="${inputId}"]`);
 
-const removeErrorMessages = form => {
-    form.querySelectorAll('.error-message').forEach(error => {
-        error.remove();
-    });
-}
-
-const validateForm = form => {
-    const emailField = form.querySelector('#email');
-
-    removeErrorMessages(form);
-
-    emailField.classList.remove('invalid', 'valid');
-
-    if (!emailField.checkValidity()) {
-        let validationMessage = emailField.validationMessage;
-        if (emailField.validity.valueMissing) {
-            validationMessage = 'Please fill out the email field.';
-        }
-
-        if (emailField.validity.typeMismatch) {
-            validationMessage = 'Please insert a valid email';
-        }
-
-        emailField.insertAdjacentHTML('afterend', `<p class="error-message">${validationMessage}</p>`);
-        emailField.classList.add('invalid');
-        emailField.classList.remove('valid');
-    } else {
-        emailField.classList.add('valid');
-        emailField.classList.remove('invalid');
+    if (message) {
+        message.remove();
     }
 }
 
-export const initializeForm = () => {
-    newsletterForm.addEventListener('submit', e => {
-        e.preventDefault();
-        validateForm(newsletterForm);
-    });
+const addInputMessage = (input, message) => {
+    input.insertAdjacentHTML('afterend', `<p data-input-field="${input.getAttribute('id')}" class="error-message">${message}</p>`);
+}
 
-    emailField.addEventListener('input', () => {
-        validateForm(newsletterForm);
+const validateInput = input => {
+    input.classList.remove('invalid', 'valid');
+
+    removeErrorMessage(input);
+
+    if (!input.checkValidity()) {
+        let validationMessage = input.validationMessage;
+        if (input.validity.valueMissing) {
+            validationMessage = 'Please fill out the email field.';
+        }
+
+        if (input.validity.typeMismatch) {
+            validationMessage = 'Please insert a valid email';
+        }
+
+        addInputMessage(input, validationMessage);
+        input.classList.add('invalid');
+        input.classList.remove('valid');
+    } else {
+        input.classList.add('valid');
+        input.classList.remove('invalid');
+    }
+}
+
+const validateForm = form => {
+    removeErrorMessages(form);
+
+    form.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', () => {
+            validateInput(input);
+        });
+    })
+}
+
+export const initializeForm = form => {
+    form.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', () => {
+            validateInput(input);
+        });
+    })
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        validateForm(form);
     });
 }

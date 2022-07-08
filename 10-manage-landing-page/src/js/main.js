@@ -6,5 +6,5 @@ import '../css/main.css';
 document.addEventListener('DOMContentLoaded', () => {
     setupSlider('#testimonialsSlider');
     menuInit( '#menuToggle' );
-    initializeForm();
+    initializeForm(document.querySelector('#newsletter'));
 });
