@@ -17,11 +17,12 @@ const config = {
             directory: path.join(__dirname, 'dist'),
         },
         compress: true,
-        hot: true,
+        hot: false,
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: 'src/index.html',
+			inject: "body"
         }),
     ],
     module: {
@@ -36,17 +37,10 @@ const config = {
                     }
                 }
             },
-            {
-                test: /\.s[ac]ss$/i,
-                use: [
-                    // Creates `style` nodes from JS strings
-                    'style-loader',
-                    // Translates CSS into CommonJS
-                    'css-loader',
-                    // Compiles Sass to CSS
-                    'sass-loader',
-                ],
-            },
+			{
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader', 'postcss-loader'],
+			},
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 type: 'asset/resource',
@@ -66,6 +60,7 @@ const config = {
 if (currentTask === 'build') {
     config.mode = 'production';
     delete config.devtool;
+	delete config.devServer;
     config.module.rules[1].use[0] = MiniCssExtractPlugin.loader;
     config.plugins.push(new MiniCssExtractPlugin({ filename: '[name].[hash].css' }), new CleanWebpackPlugin());
 }

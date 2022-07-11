@@ -1,5 +1,5 @@
 import { helloWorld } from './modules/helpers';
-import '../scss/main.scss';
+import '../css/main.css';
 
 document.addEventListener('DOMContentLoaded', () => {
     helloWorld();
