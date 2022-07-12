@@ -1,47 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './components/buttons.css';
+@import './components/switch.css';
 
 @layer base {
     body {
         @apply text-base font-normal bg-dark-navy text-tertiary;
     }
-}
 
-@layer components {
-    .btn {
-        @apply cursor-pointer inline-block text-xs text-dark-navy bg-tertiary font-bold rounded shadow transition-colors;
-        padding: 0.938rem 0.875rem 1.063rem 1rem;
+    svg {
+        display: block;
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
     }
-
-    .btn-lg {
-        @apply block w-full text-center shadow-md;
-        padding: 1.063rem 1.063rem 1.563rem 1.063rem;
-    }
-
-    .btn-primary {
-        @apply bg-primary shadow-primary-dark;
-
-    }
-
-    .btn-primary:hover {
-        @apply bg-primary-light;
-    }
-
-    .btn-secondary {
-        @apply bg-secondary shadow-secondary-dark;
-    }
-
-    .btn-secondary:hover {
-        @apply bg-secondary-light;
-    }
-
-    .btn-tertiary {
-        @apply bg-tertiary shadow-tertiary-dark;
-    }
-
-    .btn-tertiary:hover {
-        @apply bg-tertiary-light;
-    }
-
 }

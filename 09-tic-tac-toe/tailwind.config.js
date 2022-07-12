@@ -52,9 +52,9 @@ module.exports = {
             center: true,
         },
         boxShadow: {
-            sm: 'inset 0 -2px 0 #000',
-            DEFAULT: 'inset 0 -4px 0 #000',
-            md: 'inset 0 -8px 0 #000',
+            sm: 'inset 0 -2px 0 #10212A',
+            DEFAULT: 'inset 0 -4px 0 #10212A',
+            md: 'inset 0 -8px 0 #10212A',
         },
         extend: {
             colors: {
@@ -68,13 +68,17 @@ module.exports = {
                 "tertiary-light": "hsl(197,33%,89%)",
                 "tertiary-dark": "hsl(199, 17%, 51%)",
                 "dark-navy": "hsl(202,32%,15%)",
-                "dark-navy-hover": "hsl(199,35%,19%)",
+                "dark-navy-light": "hsl(199,35%,19%)",
             },
             borderRadius: {
                 none: 0,
                 DEFAULT: '10px',
                 md: '15px'
             },
+            spacing: {
+                7.5: '1.875rem', // 30px
+                30: '7.5rem' // 120px
+            }
         },
     },
     plugins: [],

@@ -1,0 +1,57 @@
+@layer components {
+    .switch {
+        display: flex;
+        width: 100%;
+        background-color: theme(colors.dark-navy);
+        padding: 9px 8px;
+        border-radius: theme(borderRadius.DEFAULT);
+        position: relative;
+    }
+
+    .switch::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: calc(50% - 8px);
+        top: 8px;
+        bottom: 8px;
+        left: initial;
+        transform: translateX(0);
+        background-color: theme(colors.tertiary);
+        border-radius: theme(borderRadius.DEFAULT);
+        z-index: 10;
+        @apply transition;
+    }
+
+    .switch > span {
+        width: 50%;
+        flex-basis: 50%;
+        display: flex;
+        justify-content: center;
+        font-size: 32px;
+        padding: 11px;
+        position: relative;
+        z-index: 20;
+        @apply transition-colors;
+    }
+
+    .switch > span:first-child {
+        color: theme(colors.dark-navy);
+    }
+
+    .switch > span:last-child {
+        color: theme(colors.tertiary);
+    }
+
+    .switch[aria-checked="false"]:before {
+        transform: translateX(100%);
+    }
+
+    .switch[aria-checked="false"] > span:first-child {
+        color: theme(colors.tertiary);
+    }
+
+    .switch[aria-checked="false"] > span:last-child {
+        color: theme(colors.dark-navy);
+    }
+}

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
     <title>Frontend Mentor | Tic Tac Toe</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,37 +12,56 @@
 <body>
 
 <!-- New game menu start -->
+<section id="newGameScreen">
+    <div class="py-30 px-6 text-center">
+        <div class="shadow shadow-md px-6 pt-6 pb-7.5 mb-8 bg-dark-navy-light rounded-md">
+            <img class="inline-block mb-8" src="./img/logo.svg" alt="Tic Tac Toe Logo">
+            <!-- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role -->
+            <label for="playerOneMark" class="block text-tertiary uppercase text-xs font-bold mb-6 switch-label">Pick player 1's mark</label>
+            <button type="button" role="switch" aria-checked="true" id="playerOneMark" class="switch">
+                <span aria-hidden="true">
+                    <span class="sr-only">cross</span>
+                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill-rule="evenodd"/></svg>
+                </span>
+                <span aria-hidden="true">
+                    <span class="sr-only">nought</span>
+                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"/></svg>
+                </span>
+            </button>
+            <p class="mt-4 mix-blend-normal text-base uppercase opacity-50">Remember: X goes first</p>
+        </div>
 
-Pick player 1's mark
-Remember: X goes first
+        <button class="btn btn-lg btn-primary mb-4">New Game (vs CPU)</button>
+        <button class="btn btn-lg btn-secondary">New Game (vs player)</button>
+    </div>
+</section>
 
-<button class="btn btn-lg btn-primary">New Game (vs CPU)</button>
-<button class="btn btn-lg btn-secondary">New Game (vs player)</button>
+<section class="hidden">
+    <!-- New game menu end -->
 
-<!-- New game menu end -->
+    <!-- Game board start -->
 
-<!-- Game board start -->
+    <!-- x/o icon --> turn
 
-<!-- x/o icon --> turn
+    X (You) <!-- Your score -->
+    Ties <!-- Ties score -->
+    X (CPU) <!-- CPU score -->
 
-X (You) <!-- Your score -->
-Ties <!-- Ties score -->
-X (CPU) <!-- CPU score -->
+    Oh no, you lost
+    You won!
+    Player <!-- 1/2 --> wins!
 
-Oh no, you lost
-You won!
-Player <!-- 1/2 --> wins!
-
-<!-- x/o icon --> takes the round
-Round tied
-<button class="btn btn-tertiary">Quit</button>
-<button class="btn btn-secondary">Next round</button>
+    <!-- x/o icon --> takes the round
+    Round tied
+    <button class="btn btn-tertiary">Quit</button>
+    <button class="btn btn-secondary">Next round</button>
 
 
-Restart game?
-<button class="btn btn-tertiary">No, cancel</button>
-<button class="btn btn-secondary">Yes, restart</button>
-<!-- Game board end -->
+    Restart game?
+    <button class="btn btn-tertiary">No, cancel</button>
+    <button class="btn btn-secondary">Yes, restart</button>
+    <!-- Game board end -->
+</section>
 
 </body>
 </html>

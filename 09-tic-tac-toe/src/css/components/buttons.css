@@ -1,0 +1,38 @@
+@layer components {
+    .btn {
+        @apply cursor-pointer inline-block text-xs text-dark-navy bg-tertiary font-bold rounded shadow transition-colors;
+        padding: 0.938rem 0.875rem 1.063rem 1rem;
+    }
+
+    .btn-lg {
+        @apply block w-full text-center shadow-md;
+        padding: 1.063rem 1.063rem 1.563rem 1.063rem;
+    }
+
+    .btn-primary {
+        @apply bg-primary shadow-primary-dark;
+    }
+
+    .btn-primary:focus,
+    .btn-primary:hover {
+        @apply bg-primary-light;
+    }
+
+    .btn-secondary {
+        @apply bg-secondary shadow-secondary-dark;
+    }
+
+    .btn-secondary:focus,
+    .btn-secondary:hover {
+        @apply bg-secondary-light;
+    }
+
+    .btn-tertiary {
+        @apply bg-tertiary shadow-tertiary-dark;
+    }
+
+    .btn-tertiary:focus,
+    .btn-tertiary:hover {
+        @apply bg-tertiary-light;
+    }
+}
