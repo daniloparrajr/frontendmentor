@@ -12,6 +12,13 @@ module.exports = {
             "sans": ["Outfit", ...defaultTheme.fontFamily.sans],
         },
         fontSize: {
+            "xs1": [
+                "0.75rem",
+                {
+                    letterSpacing: "0.047rem",
+                    lineHeight: "0.938rem",
+                },
+            ],
             "xs": [
                 "1rem",
                 {
@@ -72,10 +79,12 @@ module.exports = {
             },
             borderRadius: {
                 none: 0,
+                sm: '5px',
                 DEFAULT: '10px',
                 md: '15px'
             },
             spacing: {
+                4.5: '1.125rem', // 18px
                 7.5: '1.875rem', // 30px
                 30: '7.5rem' // 120px
             }

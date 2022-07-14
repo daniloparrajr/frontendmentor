@@ -12,7 +12,7 @@
 <body>
 
 <!-- New game menu start -->
-<section id="newGameScreen">
+<section class="hidden" id="newGameScreen">
     <div class="py-30 px-6 text-center">
         <div class="shadow shadow-md px-6 pt-6 pb-7.5 mb-8 bg-dark-navy-light rounded-md">
             <img class="inline-block mb-8" src="./img/logo.svg" alt="Tic Tac Toe Logo">
@@ -21,11 +21,11 @@
             <button type="button" role="switch" aria-checked="true" id="playerOneMark" class="switch">
                 <span aria-hidden="true">
                     <span class="sr-only">cross</span>
-                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill-rule="evenodd"/></svg>
+                    <svg><use xlink:href="#icon-x"></use></svg>
                 </span>
                 <span aria-hidden="true">
                     <span class="sr-only">nought</span>
-                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"/></svg>
+                    <svg><use xlink:href="#icon-o"></use></svg>
                 </span>
             </button>
             <p class="mt-4 mix-blend-normal text-base uppercase opacity-50">Remember: X goes first</p>
@@ -36,16 +36,52 @@
     </div>
 </section>
 
+<section id="gameBoardScreen">
+    <div class="p-6">
+        <header class="flex justify-between items-center mb-16">
+            <img src="./img/logo.svg" alt="Tic Tac Toe Logo">
+
+            <div class="pt-2.5 pb-3.5 space-x-2 px-3.5 rounded-sm bg-dark-navy-light shadow flex items-center justify-center uppercase">
+                <span><svg><use xlink:href="#icon-x"></use></svg></span>
+                <span class="hidden"><svg><use xlink:href="#icon-o"></use></svg></span>
+                <span class="text-base font-bold">Turn</span>
+            </div>
+
+            <button id="resetGameBtn" class="btn btn-sm btn-tertiary">
+                <span class="sr-only">Reset Game Button</span>
+                <svg><use xlink:href="#icon-restart"></use></svg>
+            </button>
+        </header>
+        <div class="game-board">
+            <div class="game-board__item"></div>
+            <div class="game-board__item"></div>
+            <div class="game-board__item"></div>
+            <div class="game-board__item"></div>
+            <div class="game-board__item"></div>
+            <div class="game-board__item"></div>
+            <div class="game-board__item"></div>
+            <div class="game-board__item"></div>
+            <div class="game-board__item"></div>
+        </div>
+        <div class="game-stats mt-5 space-x-5 flex text-center text-dark-navy">
+            <div class="py-3 rounded-sm px-4.5 w-full bg-primary">
+                <span class="block font-medium text-xs1">X (You)</span>
+                <strong class="font-bold text-sm block">14</strong>
+            </div>
+            <div class="py-3 rounded-sm px-4.5 w-full bg-tertiary">
+                <span class="block font-medium text-xs1">TIES</span>
+                <strong class="font-bold text-sm block">32</strong>
+            </div>
+            <div class="py-3 rounded-sm px-4.5 w-full bg-secondary">
+                <span class="block font-medium text-xs1">O (CPU)</span>
+                <strong class="font-bold text-sm block">11</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="hidden">
-    <!-- New game menu end -->
 
-    <!-- Game board start -->
-
-    <!-- x/o icon --> turn
-
-    X (You) <!-- Your score -->
-    Ties <!-- Ties score -->
-    X (CPU) <!-- CPU score -->
 
     Oh no, you lost
     You won!

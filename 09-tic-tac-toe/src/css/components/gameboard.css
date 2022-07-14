@@ -1,0 +1,12 @@
+@layer components {
+    .game-board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .game-board__item {
+        @apply shadow-md rounded bg-dark-navy-light lg:rounded-lg;
+        aspect-ratio: 1 / 1;
+    }
+}

@@ -43,7 +43,21 @@ const config = {
 			},
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
+                include: [
+                    path.resolve(__dirname, 'src/img')
+                ],
                 type: 'asset/resource',
+            },
+            {
+                test: /\.svg$/,
+                include: [
+                    path.resolve(__dirname, 'src/icons')
+                ],
+                use: [
+                    {
+                        loader: 'svg-sprite-loader',
+                    }
+                ]
             },
             {
                 test: /\.html$/,
