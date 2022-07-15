@@ -52,16 +52,16 @@
                 <svg><use xlink:href="#icon-restart"></use></svg>
             </button>
         </header>
-        <div class="game-board">
-            <div class="game-board__item"></div>
-            <div class="game-board__item"></div>
-            <div class="game-board__item"></div>
-            <div class="game-board__item"></div>
-            <div class="game-board__item"></div>
-            <div class="game-board__item"></div>
-            <div class="game-board__item"></div>
-            <div class="game-board__item"></div>
-            <div class="game-board__item"></div>
+        <div class="gameboard">
+            <div class="gameboard-item"></div>
+            <div class="gameboard-item"></div>
+            <div class="gameboard-item"></div>
+            <div class="gameboard-item"></div>
+            <div class="gameboard-item"></div>
+            <div class="gameboard-item"></div>
+            <div class="gameboard-item"></div>
+            <div class="gameboard-item"></div>
+            <div class="gameboard-item"></div>
         </div>
         <div class="game-stats mt-5 space-x-5 flex text-center text-dark-navy">
             <div class="py-3 rounded-sm px-4.5 w-full bg-primary">
@@ -80,24 +80,44 @@
     </div>
 </section>
 
-<section class="hidden">
-
-
-    Oh no, you lost
-    You won!
-    Player <!-- 1/2 --> wins!
-
-    <!-- x/o icon --> takes the round
-    Round tied
-    <button class="btn btn-tertiary">Quit</button>
-    <button class="btn btn-secondary">Next round</button>
-
-
-    Restart game?
-    <button class="btn btn-tertiary">No, cancel</button>
-    <button class="btn btn-secondary">Yes, restart</button>
-    <!-- Game board end -->
-</section>
+<div class="modal">
+    <div class="hidden modal-body">
+        <p class="text-base uppercase font-bold">PLAYER 1 WINS!</p>
+        <div class="flex items-center justify-center text-secondary space-x-2 mt-4">
+            <svg class="block text-lg"><use xlink:href="#icon-o"></use></svg>
+            <span class="block font-bold text-md">TAKES THE ROUND</span>
+        </div>
+        <div class="flex justify-center space-x-4 mt-6">
+            <button class="btn btn-tertiary">Quit</button>
+            <button class="btn btn-secondary">Next round</button>
+        </div>
+    </div>
+    <div class="hidden modal-body">
+        <p class="text-base uppercase font-bold">PLAYER 1 WINS!</p>
+        <div class="flex items-center justify-center text-primary space-x-2 mt-4">
+            <svg class="block text-lg"><use xlink:href="#icon-x"></use></svg>
+            <span class="block font-bold text-md">TAKES THE ROUND</span>
+        </div>
+        <div class="flex justify-center space-x-4 mt-6">
+            <button class="btn btn-tertiary">Quit</button>
+            <button class="btn btn-secondary">Next round</button>
+        </div>
+    </div>
+    <div class="hidden modal-body py-15">
+        <p class="text-base uppercase font-bold text-tertiary text-md">ROUND TIED</p>
+        <div class="flex justify-center space-x-4 mt-6">
+            <button class="btn btn-tertiary">Quit</button>
+            <button class="btn btn-secondary">Next round</button>
+        </div>
+    </div>
+    <div class="modal-body py-15">
+        <p class="text-base uppercase font-bold text-tertiary text-md">RESTART THE GAME?</p>
+        <div class="flex justify-center space-x-4 mt-6">
+            <button class="btn btn-tertiary">NO, CANCEL</button>
+            <button class="btn btn-secondary">YES, RESTART</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

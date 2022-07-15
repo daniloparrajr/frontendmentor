@@ -1,0 +1,23 @@
+@layer components {
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .modal:before {
+        content: '';
+        position: absolute;
+        z-index: 10;
+        background: #000000;
+        mix-blend-mode: normal;
+        opacity: 0.5;
+        inset: 0;
+    }
+
+    .modal-body {
+        @apply relative mt-52 bg-dark-navy-light p-10 pb-12 z-20 text-center;
+    }
+}

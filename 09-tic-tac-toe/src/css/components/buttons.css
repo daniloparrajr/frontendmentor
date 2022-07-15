@@ -1,6 +1,6 @@
 @layer components {
     .btn {
-        @apply cursor-pointer inline-block text-xs text-dark-navy bg-tertiary font-bold rounded shadow transition-colors;
+        @apply uppercase cursor-pointer inline-block text-xs text-dark-navy bg-tertiary font-bold rounded shadow transition-colors;
         padding: 0.938rem 0.875rem 1.063rem 1rem;
     }
 

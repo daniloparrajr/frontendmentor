@@ -4,6 +4,7 @@
 @import './components/buttons.css';
 @import './components/switch.css';
 @import './components/gameboard.css';
+@import './components/modal.css';
 
 @layer base {
     body {

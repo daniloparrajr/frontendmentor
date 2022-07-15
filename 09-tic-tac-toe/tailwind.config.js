@@ -47,7 +47,8 @@ module.exports = {
                     lineHeight: "1.875rem",
                 },
             ],
-            "lg": [
+            "lg": "1.875rem", // 30px,
+            "xl": [
                 "2.5rem",
                 {
                     letterSpacing: "0.156rem",
@@ -86,7 +87,9 @@ module.exports = {
             spacing: {
                 4.5: '1.125rem', // 18px
                 7.5: '1.875rem', // 30px
-                30: '7.5rem' // 120px
+                15: '3.875rem', // 62px
+                30: '7.5rem', // 120px
+                55: '13.75rem' // 220px
             }
         },
     },
