@@ -5,43 +5,43 @@ module.exports = {
     content: ["./src/**/*.{html,js}"],
     theme: {
         screens: {
-            md: "54.857rem",
-            lg: "102.857rem",
+            md: "48rem",
+            lg: "90rem",
         },
         fontFamily: {
             "sans": ["Outfit", ...defaultTheme.fontFamily.sans],
         },
         fontSize: {
             "xs1": [
-                "0.75rem",
+                '0.75rem',
                 {
                     letterSpacing: "0.047rem",
                     lineHeight: "0.938rem",
                 },
             ],
             "xs": [
-                "1rem",
+                "1rem", // 16px
                 {
                     letterSpacing: "0.063rem",
                     lineHeight: "1.25rem",
                 },
             ],
             "sm": [
-                "1.25rem",
+                "1.25rem", // 20px
                 {
                     letterSpacing: "0.078rem",
                     lineHeight: "1.563rem",
                 },
             ],
-            "base": [
-                "0.875",
+            "base": [ // 14px
+                "0.875rem",
                 {
                     letterSpacing: "0.055rem",
                     lineHeight: "1.125rem",
                 },
             ],
             "md": [
-                "1.5rem",
+                "1.5rem", // 24px
                 {
                     letterSpacing: "0.094rem",
                     lineHeight: "1.875rem",
@@ -49,7 +49,7 @@ module.exports = {
             ],
             "lg": "1.875rem", // 30px,
             "xl": [
-                "2.5rem",
+                "2.5rem", // 40px
                 {
                     letterSpacing: "0.156rem",
                     lineHeight: "3.125rem",
@@ -89,7 +89,9 @@ module.exports = {
                 7.5: '1.875rem', // 30px
                 15: '3.875rem', // 62px
                 30: '7.5rem', // 120px
-                55: '13.75rem' // 220px
+                50: '12.5rem', // 200px
+                55: '13.75rem', // 220px
+                70: '17.25rem' // 276px
             }
         },
     },

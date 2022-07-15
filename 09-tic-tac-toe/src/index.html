@@ -12,10 +12,10 @@
 <body>
 
 <!-- New game menu start -->
-<section class="hidden" id="newGameScreen">
-    <div class="py-30 px-6 text-center">
-        <div class="shadow shadow-md px-6 pt-6 pb-7.5 mb-8 bg-dark-navy-light rounded-md">
-            <img class="inline-block mb-8" src="./img/logo.svg" alt="Tic Tac Toe Logo">
+<section id="newGameScreen" class="screen">
+    <div class="py-30 px-6 text-center md:py-70 md:px-0">
+        <img class="inline-block mb-8 md:mb-10" src="./img/logo.svg" alt="Tic Tac Toe Logo">
+        <div class="shadow shadow-md px-6 pt-6 pb-7.5 mb-8 bg-dark-navy-light rounded-md md:mb-10">
             <!-- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role -->
             <label for="playerOneMark" class="block text-tertiary uppercase text-xs font-bold mb-6 switch-label">Pick player 1's mark</label>
             <button type="button" role="switch" aria-checked="true" id="playerOneMark" class="switch">
@@ -31,13 +31,13 @@
             <p class="mt-4 mix-blend-normal text-base uppercase opacity-50">Remember: X goes first</p>
         </div>
 
-        <button class="btn btn-lg btn-primary mb-4">New Game (vs CPU)</button>
+        <button class="btn btn-lg btn-primary mb-4 md:mb-5">New Game (vs CPU)</button>
         <button class="btn btn-lg btn-secondary">New Game (vs player)</button>
     </div>
 </section>
 
-<section id="gameBoardScreen">
-    <div class="p-6">
+<section id="gameBoardScreen" class="hidden screen">
+    <div class="p-6 mx-auto">
         <header class="flex justify-between items-center mb-16">
             <img src="./img/logo.svg" alt="Tic Tac Toe Logo">
 
@@ -64,7 +64,7 @@
             <div class="gameboard-item"></div>
         </div>
         <div class="game-stats mt-5 space-x-5 flex text-center text-dark-navy">
-            <div class="py-3 rounded-sm px-4.5 w-full bg-primary">
+            <div class="py-3 rounded-sm font- px-4.5 w-full bg-primary">
                 <span class="block font-medium text-xs1">X (You)</span>
                 <strong class="font-bold text-sm block">14</strong>
             </div>
@@ -80,7 +80,7 @@
     </div>
 </section>
 
-<div class="modal">
+<div class="modal hidden">
     <div class="hidden modal-body">
         <p class="text-base uppercase font-bold">PLAYER 1 WINS!</p>
         <div class="flex items-center justify-center text-secondary space-x-2 mt-4">

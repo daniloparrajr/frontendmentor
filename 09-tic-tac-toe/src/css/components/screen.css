@@ -1,0 +1,7 @@
+@layer components {
+    .screen {
+        max-width: 28.75rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
