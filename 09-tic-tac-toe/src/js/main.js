@@ -1,9 +1,16 @@
 import { helloWorld } from './modules/helpers';
 import '../css/main.css';
 import '../icons/icon-restart.svg';
-import '../icons/icon-o.svg';
-import '../icons/icon-x.svg';
 
 document.addEventListener('DOMContentLoaded', () => {
-    helloWorld();
+    const turn = true; // true is x
+    const boardItems = document.querySelectorAll('.gameboard-item');
+
+    boardItems.forEach(boardItem => {
+        boardItem.addEventListener('click', function() {
+            if (!turn) {
+
+            }
+        });
+    });
 });

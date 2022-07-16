@@ -12,7 +12,7 @@
 <body>
 
 <!-- New game menu start -->
-<section id="newGameScreen" class="screen">
+<section id="newGameScreen" class="hidden screen">
     <div class="py-30 px-6 text-center md:py-70 md:px-0">
         <img class="inline-block mb-8 md:mb-10" src="./img/logo.svg" alt="Tic Tac Toe Logo">
         <div class="shadow shadow-md px-6 pt-6 pb-7.5 mb-8 bg-dark-navy-light rounded-md md:mb-10">
@@ -36,14 +36,12 @@
     </div>
 </section>
 
-<section id="gameBoardScreen" class="hidden screen">
+<section id="gameBoardScreen" class="screen">
     <div class="p-6 mx-auto">
         <header class="flex justify-between items-center mb-16">
             <img src="./img/logo.svg" alt="Tic Tac Toe Logo">
 
             <div class="pt-2.5 pb-3.5 space-x-2 px-3.5 rounded-sm bg-dark-navy-light shadow flex items-center justify-center uppercase">
-                <span><svg><use xlink:href="#icon-x"></use></svg></span>
-                <span class="hidden"><svg><use xlink:href="#icon-o"></use></svg></span>
                 <span class="text-base font-bold">Turn</span>
             </div>
 
@@ -52,9 +50,9 @@
                 <svg><use xlink:href="#icon-restart"></use></svg>
             </button>
         </header>
-        <div class="gameboard">
-            <div class="gameboard-item"></div>
-            <div class="gameboard-item"></div>
+        <div class="gameboard" data-player-turn="o">
+            <div class="gameboard-item x"></div>
+            <div class="gameboard-item o"></div>
             <div class="gameboard-item"></div>
             <div class="gameboard-item"></div>
             <div class="gameboard-item"></div>

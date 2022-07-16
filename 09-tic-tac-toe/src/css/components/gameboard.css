@@ -5,8 +5,49 @@
         gap: 20px;
 
         &-item {
-            @apply shadow-md rounded bg-dark-navy-light lg:rounded-lg;
-            aspect-ratio: 1 / 1;
+            @apply cursor-pointer relative shadow-md rounded bg-dark-navy-light lg:rounded-lg aspect-square;
+
+            &:before,
+            &:before {
+                content: '';
+                mask-repeat: no-repeat;
+                mask-size: contain;
+                pointer-events: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 50%;
+                aspect-ratio: 1 / 1;
+                @apply transition-opacity;
+            }
+
+            &.x:before {
+                mask-image: url("../img/icon-x.svg");
+                background-color: theme(colors.primary);
+            }
+
+            &.o:before {
+                mask-image: url("../img/icon-o.svg");
+                background-color: theme(colors.secondary);
+            }
+        }
+
+        &[data-player-turn="x"] {
+            .gameboard-item:not(.x):not(.o):hover:before {
+                background-color: theme(colors.primary);
+                mask-image: url("../img/icon-x-outline.svg");
+                opacity: 1;
+            }
+        }
+
+        &[data-player-turn="o"] {
+            .gameboard-item:not(.x):not(.o):hover:before {
+                background-color: theme(colors.secondary);
+                -webkit-mask-image: url("../img/icon-o-outline.svg");
+                mask-image: url("../img/icon-o-outline.svg");
+                opacity: 1;
+            }
         }
     }
 }
