@@ -1,16 +1,75 @@
-import { helloWorld } from './modules/helpers';
 import '../css/main.css';
 import '../icons/icon-restart.svg';
 
-document.addEventListener('DOMContentLoaded', () => {
-    const turn = true; // true is x
-    const boardItems = document.querySelectorAll('.gameboard-item');
+let turn = true; // true is x
+const gameboard = document.querySelector('#gameboard');
+const boardItems = gameboard.querySelectorAll('.gameboard-item');
+const WINNING_COMBINATIONS = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+];
 
-    boardItems.forEach(boardItem => {
-        boardItem.addEventListener('click', function() {
-            if (!turn) {
 
-            }
+const insertPlayerMark = (turn, item) => item.classList.add(turn ? 'x' : 'o');
+
+const setBoardTurnMark = (turn, board) => board.dataset.playerTurn = turn ? 'x' : 'o';
+
+const swapPlayerTurn = () => turn = !turn;
+
+const checkWin = () => {
+    return WINNING_COMBINATIONS.some(combinations => {
+        return combinations.every(index => {
+           return boardItems[index].classList.contains(turn ? 'x' : 'o');
         });
     });
+}
+
+const checkDraw = () => {
+    return [...boardItems].every(boardItem=> {
+       return boardItem.classList.contains( 'x' ) || boardItem.classList.contains( 'o' );
+    });
+}
+
+const resetGame = () => {
+    boardItems.forEach(boardItem => {
+        boardItem.classList.remove('x');
+        boardItem.classList.remove('o');
+    });
+    turn = true;
+    startGame();
+}
+
+const handleTurn = (e) => {
+    insertPlayerMark(turn, e.currentTarget);
+
+    if (checkWin()) {
+        console.log('We have a winner!');
+    } else {
+        if (checkDraw()) {
+            console.log('Its a draw!');
+            resetGame();
+            return false;
+        }
+    }
+
+    swapPlayerTurn();
+    setBoardTurnMark(turn, gameboard);
+}
+
+const startGame = () => {
+    setBoardTurnMark(turn, gameboard);
+
+    boardItems.forEach(boardItem => {
+        boardItem.addEventListener('click', handleTurn, { once: true });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    startGame();
 });

@@ -50,9 +50,10 @@
                 <svg><use xlink:href="#icon-restart"></use></svg>
             </button>
         </header>
-        <div class="gameboard" data-player-turn="o">
-            <div class="gameboard-item x"></div>
-            <div class="gameboard-item o"></div>
+
+        <div id="gameboard" class="gameboard" data-player-turn>
+            <div class="gameboard-item"></div>
+            <div class="gameboard-item"></div>
             <div class="gameboard-item"></div>
             <div class="gameboard-item"></div>
             <div class="gameboard-item"></div>
@@ -61,6 +62,7 @@
             <div class="gameboard-item"></div>
             <div class="gameboard-item"></div>
         </div>
+
         <div class="game-stats mt-5 space-x-5 flex text-center text-dark-navy">
             <div class="py-3 rounded-sm font- px-4.5 w-full bg-primary">
                 <span class="block font-medium text-xs1">X (You)</span>
