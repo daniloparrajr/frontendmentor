@@ -1,123 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon-32x32.png"
+    />
     <title>Frontend Mentor | Tic Tac Toe</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-<!-- New game menu start -->
-<section id="newGameScreen" class="hidden screen">
-    <div class="py-30 px-6 text-center md:py-70 md:px-0">
-        <img class="inline-block mb-8 md:mb-10" src="./img/logo.svg" alt="Tic Tac Toe Logo">
-        <div class="shadow shadow-md px-6 pt-6 pb-7.5 mb-8 bg-dark-navy-light rounded-md md:mb-10">
-            <!-- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role -->
-            <label for="playerOneMark" class="block text-tertiary uppercase text-xs font-bold mb-6 switch-label">Pick player 1's mark</label>
-            <button type="button" role="switch" aria-checked="true" id="playerOneMark" class="switch">
-                <span aria-hidden="true">
-                    <span class="sr-only">cross</span>
-                    <svg><use xlink:href="#icon-x"></use></svg>
-                </span>
-                <span aria-hidden="true">
-                    <span class="sr-only">nought</span>
-                    <svg><use xlink:href="#icon-o"></use></svg>
-                </span>
-            </button>
-            <p class="mt-4 mix-blend-normal text-base uppercase opacity-50">Remember: X goes first</p>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- New game menu start -->
+    <section id="newGameScreen" class="screen hidden">
+      <div class="py-30 px-6 text-center md:py-70 md:px-0">
+        <img
+          class="mb-8 inline-block md:mb-10"
+          src="./img/logo.svg"
+          alt="Tic Tac Toe Logo"
+        />
+        <div
+          class="mb-8 rounded-md bg-dark-navy-light px-6 pt-6 pb-7.5 shadow shadow-md md:mb-10"
+        >
+          <!-- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role -->
+          <label
+            for="playerOneMark"
+            class="switch-label mb-6 block text-xs font-bold uppercase text-tertiary"
+            >Pick player 1's mark</label
+          >
+          <button
+            type="button"
+            role="switch"
+            aria-checked="true"
+            id="playerOneMark"
+            class="switch"
+          >
+            <span aria-hidden="true">
+              <span class="sr-only">cross</span>
+              <svg><use xlink:href="#icon-x"></use></svg>
+            </span>
+            <span aria-hidden="true">
+              <span class="sr-only">nought</span>
+              <svg><use xlink:href="#icon-o"></use></svg>
+            </span>
+          </button>
+          <p class="mt-4 text-base uppercase opacity-50 mix-blend-normal">
+            Remember: X goes first
+          </p>
         </div>
 
-        <button class="btn btn-lg btn-primary mb-4 md:mb-5">New Game (vs CPU)</button>
+        <button class="btn btn-lg btn-primary mb-4 md:mb-5">
+          New Game (vs CPU)
+        </button>
         <button class="btn btn-lg btn-secondary">New Game (vs player)</button>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section id="gameBoardScreen" class="screen">
-    <div class="p-6 mx-auto">
-        <header class="flex justify-between items-center mb-16">
-            <img src="./img/logo.svg" alt="Tic Tac Toe Logo">
+    <section id="gameBoardScreen" class="screen">
+      <div class="mx-auto p-6">
+        <header class="mb-16 flex items-center justify-between">
+          <img src="./img/logo.svg" alt="Tic Tac Toe Logo" />
 
-            <div class="pt-2.5 pb-3.5 space-x-2 px-3.5 rounded-sm bg-dark-navy-light shadow flex items-center justify-center uppercase">
-                <span class="text-base font-bold">Turn</span>
-            </div>
+          <div
+            class="flex items-center justify-center space-x-2 rounded-sm bg-dark-navy-light px-3.5 pt-2.5 pb-3.5 uppercase shadow"
+          >
+            <span class="text-base font-bold">Turn</span>
+          </div>
 
-            <button id="resetGameBtn" class="btn btn-sm btn-tertiary">
-                <span class="sr-only">Reset Game Button</span>
-                <svg><use xlink:href="#icon-restart"></use></svg>
-            </button>
+          <button id="resetGameBtn" class="btn btn-sm btn-tertiary">
+            <span class="sr-only">Reset Game Button</span>
+            <svg><use xlink:href="#icon-restart"></use></svg>
+          </button>
         </header>
 
-        <div id="gameboard" class="gameboard" data-player-turn>
-            <div class="gameboard-item"></div>
-            <div class="gameboard-item"></div>
-            <div class="gameboard-item"></div>
-            <div class="gameboard-item"></div>
-            <div class="gameboard-item"></div>
-            <div class="gameboard-item"></div>
-            <div class="gameboard-item"></div>
-            <div class="gameboard-item"></div>
-            <div class="gameboard-item"></div>
+        <div id="gameboard" class="gameboard">
+          <div class="gameboard-item"></div>
+          <div class="gameboard-item"></div>
+          <div class="gameboard-item"></div>
+          <div class="gameboard-item"></div>
+          <div class="gameboard-item"></div>
+          <div class="gameboard-item"></div>
+          <div class="gameboard-item"></div>
+          <div class="gameboard-item"></div>
+          <div class="gameboard-item"></div>
         </div>
 
-        <div class="game-stats mt-5 space-x-5 flex text-center text-dark-navy">
-            <div class="py-3 rounded-sm font- px-4.5 w-full bg-primary">
-                <span class="block font-medium text-xs1">X (You)</span>
-                <strong class="font-bold text-sm block">14</strong>
-            </div>
-            <div class="py-3 rounded-sm px-4.5 w-full bg-tertiary">
-                <span class="block font-medium text-xs1">TIES</span>
-                <strong class="font-bold text-sm block">32</strong>
-            </div>
-            <div class="py-3 rounded-sm px-4.5 w-full bg-secondary">
-                <span class="block font-medium text-xs1">O (CPU)</span>
-                <strong class="font-bold text-sm block">11</strong>
-            </div>
+        <div class="game-stats mt-5 flex space-x-5 text-center text-dark-navy">
+          <div class="font- w-full rounded-sm bg-primary py-3 px-4.5">
+            <span class="block text-xs1 font-medium">X (You)</span>
+            <strong class="block text-sm font-bold">14</strong>
+          </div>
+          <div class="w-full rounded-sm bg-tertiary py-3 px-4.5">
+            <span class="block text-xs1 font-medium">TIES</span>
+            <strong class="block text-sm font-bold">32</strong>
+          </div>
+          <div class="w-full rounded-sm bg-secondary py-3 px-4.5">
+            <span class="block text-xs1 font-medium">O (CPU)</span>
+            <strong class="block text-sm font-bold">11</strong>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<div class="modal hidden">
-    <div class="hidden modal-body">
-        <p class="text-base uppercase font-bold">PLAYER 1 WINS!</p>
-        <div class="flex items-center justify-center text-secondary space-x-2 mt-4">
-            <svg class="block text-lg"><use xlink:href="#icon-o"></use></svg>
-            <span class="block font-bold text-md">TAKES THE ROUND</span>
+    <div class="modal hidden">
+      <div class="modal-body hidden">
+        <p class="text-base font-bold uppercase">PLAYER 1 WINS!</p>
+        <div
+          class="mt-4 flex items-center justify-center space-x-2 text-secondary"
+        >
+          <svg class="block text-lg"><use xlink:href="#icon-o"></use></svg>
+          <span class="block text-md font-bold">TAKES THE ROUND</span>
         </div>
-        <div class="flex justify-center space-x-4 mt-6">
-            <button class="btn btn-tertiary">Quit</button>
-            <button class="btn btn-secondary">Next round</button>
+        <div class="mt-6 flex justify-center space-x-4">
+          <button class="btn btn-tertiary">Quit</button>
+          <button class="btn btn-secondary">Next round</button>
         </div>
+      </div>
+      <div class="modal-body hidden">
+        <p class="text-base font-bold uppercase">PLAYER 1 WINS!</p>
+        <div
+          class="mt-4 flex items-center justify-center space-x-2 text-primary"
+        >
+          <svg class="block text-lg"><use xlink:href="#icon-x"></use></svg>
+          <span class="block text-md font-bold">TAKES THE ROUND</span>
+        </div>
+        <div class="mt-6 flex justify-center space-x-4">
+          <button class="btn btn-tertiary">Quit</button>
+          <button class="btn btn-secondary">Next round</button>
+        </div>
+      </div>
+      <div class="modal-body hidden py-15">
+        <p class="text-base text-md font-bold uppercase text-tertiary">
+          ROUND TIED
+        </p>
+        <div class="mt-6 flex justify-center space-x-4">
+          <button class="btn btn-tertiary">Quit</button>
+          <button class="btn btn-secondary">Next round</button>
+        </div>
+      </div>
+      <div class="modal-body py-15">
+        <p class="text-base text-md font-bold uppercase text-tertiary">
+          RESTART THE GAME?
+        </p>
+        <div class="mt-6 flex justify-center space-x-4">
+          <button class="btn btn-tertiary">NO, CANCEL</button>
+          <button class="btn btn-secondary">YES, RESTART</button>
+        </div>
+      </div>
     </div>
-    <div class="hidden modal-body">
-        <p class="text-base uppercase font-bold">PLAYER 1 WINS!</p>
-        <div class="flex items-center justify-center text-primary space-x-2 mt-4">
-            <svg class="block text-lg"><use xlink:href="#icon-x"></use></svg>
-            <span class="block font-bold text-md">TAKES THE ROUND</span>
-        </div>
-        <div class="flex justify-center space-x-4 mt-6">
-            <button class="btn btn-tertiary">Quit</button>
-            <button class="btn btn-secondary">Next round</button>
-        </div>
-    </div>
-    <div class="hidden modal-body py-15">
-        <p class="text-base uppercase font-bold text-tertiary text-md">ROUND TIED</p>
-        <div class="flex justify-center space-x-4 mt-6">
-            <button class="btn btn-tertiary">Quit</button>
-            <button class="btn btn-secondary">Next round</button>
-        </div>
-    </div>
-    <div class="modal-body py-15">
-        <p class="text-base uppercase font-bold text-tertiary text-md">RESTART THE GAME?</p>
-        <div class="flex justify-center space-x-4 mt-6">
-            <button class="btn btn-tertiary">NO, CANCEL</button>
-            <button class="btn btn-secondary">YES, RESTART</button>
-        </div>
-    </div>
-</div>
-
-</body>
+  </body>
 </html>
