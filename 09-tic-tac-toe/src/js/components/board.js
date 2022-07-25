@@ -18,6 +18,7 @@ export default {
 
     this.events();
     this.setBoardMark();
+    pubsub.subscribe("resetGame", this.resetGame.bind(this));
   },
   events: function () {
     this.cells.forEach((cell) => {
@@ -43,6 +44,18 @@ export default {
   checkDraw: function () {
     return [...this.cells].every((cell) => {
       return cell.classList.contains("x") || cell.classList.contains("o");
+    });
+  },
+  resetGame: function () {
+    this.turn = true;
+    this.setBoardMark();
+    this.clearBoardCells();
+    this.events();
+  },
+  clearBoardCells: function () {
+    this.cells.forEach((cell) => {
+      cell.classList.remove("x");
+      cell.classList.remove("o");
     });
   },
   handleTurn: function (e) {
