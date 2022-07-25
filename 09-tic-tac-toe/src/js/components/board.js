@@ -1,72 +1,63 @@
 import pubsub from "../library/pubsub";
 
-let turn = true; // true is x
-const gameboard = document.querySelector("#board");
-const boardItems = gameboard.querySelectorAll(".board-cell");
-const WINNING_COMBINATIONS = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
-];
+export default {
+  init: function () {
+    this.turn = true; // x is true, o is false
+    this.element = document.querySelector("#board");
+    this.cells = document.querySelectorAll(".board-cell");
+    this.winCombinations = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
 
-const insertPlayerMark = (turn, item) => item.classList.add(turn ? "x" : "o");
-
-const setBoardTurnMark = (turn, board) =>
-  (board.dataset.playerTurn = turn ? "x" : "o");
-
-const swapPlayerTurn = () => (turn = !turn);
-
-const checkWin = () => {
-  return WINNING_COMBINATIONS.some((combinations) => {
-    return combinations.every((index) => {
-      return boardItems[index].classList.contains(turn ? "x" : "o");
+    this.events();
+    this.setBoardMark();
+  },
+  events: function () {
+    this.cells.forEach((cell) => {
+      cell.addEventListener("click", this.handleTurn.bind(this), {
+        once: true,
+      });
     });
-  });
-};
+  },
+  addMark: function (e) {
+    e.currentTarget.classList.add(this.turn ? "x" : "o");
+  },
+  setBoardMark: function () {
+    this.element.dataset.playerTurn = this.turn ? "x" : "o";
+    pubsub.publish("setBoardMark", this.turn);
+  },
+  checkWin: function () {
+    return this.winCombinations.some((combinations) => {
+      return combinations.every((index) => {
+        return this.cells[index].classList.contains(this.turn ? "x" : "o");
+      });
+    });
+  },
+  checkDraw: function () {
+    return [...this.cells].every((cell) => {
+      return cell.classList.contains("x") || cell.classList.contains("o");
+    });
+  },
+  handleTurn: function (e) {
+    pubsub.publish("playerTurn", this.turn);
+    this.addMark(e);
 
-const checkDraw = () => {
-  return [...boardItems].every((boardItem) => {
-    return (
-      boardItem.classList.contains("x") || boardItem.classList.contains("o")
-    );
-  });
-};
-
-const resetGame = () => {
-  boardItems.forEach((boardItem) => {
-    boardItem.classList.remove("x");
-    boardItem.classList.remove("o");
-  });
-  turn = true;
-  startGame();
-};
-
-const handleTurn = (e) => {
-  insertPlayerMark(turn, e.currentTarget);
-
-  if (checkWin()) {
-    console.log("We have a winner!");
-  } else {
-    if (checkDraw()) {
-      console.log("Its a draw!");
-      resetGame();
-      return false;
+    if (this.checkWin()) {
+      pubsub.publish("playerWin", this.turn);
+    } else {
+      if (this.checkDraw()) {
+        pubsub.publish("playerDraw");
+      }
     }
-  }
 
-  swapPlayerTurn();
-  setBoardTurnMark(turn, gameboard);
-};
-
-const startGame = () => {
-  setBoardTurnMark(turn, gameboard);
-
-  boardItems.forEach((boardItem) => {
-    boardItem.addEventListener("click", handleTurn, { once: true });
-  });
+    this.turn = !this.turn;
+    this.setBoardMark();
+  },
 };

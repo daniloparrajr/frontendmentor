@@ -1,0 +1,29 @@
+@layer components {
+    #turnIndicator {
+        &:before {
+            content: '';
+            width: 1rem;
+            height: 1rem;
+            mask-repeat: no-repeat;
+            mask-size: contain;
+            background-color: theme(colors.tertiary);
+            margin-right: 0.625rem;
+        }
+
+        &.x:before {
+            mask-image: url("../img/icon-x.svg");
+        }
+
+        &.o:before {
+            mask-image: url("../img/icon-o.svg");
+        }
+
+        @media screen(md) {
+            &:before {
+                width: 1.25rem;
+                height: 1.25rem;
+                margin-right: 0.813rem;
+            }
+        }
+    }
+}

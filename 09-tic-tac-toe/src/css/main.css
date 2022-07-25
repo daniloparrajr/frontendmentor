@@ -6,6 +6,8 @@
 @import './components/gameboard.css';
 @import './components/modal.css';
 @import './components/screen.css';
+@import './components/reset-btn.css';
+@import './components/turn-indicator.css';
 
 @layer base {
     body {
