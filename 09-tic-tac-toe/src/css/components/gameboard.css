@@ -1,10 +1,10 @@
 @layer components {
-    .gameboard {
+    .board {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
 
-        &-item {
+        &-cell {
             @apply cursor-pointer relative shadow-md rounded bg-dark-navy-light lg:rounded-lg aspect-square;
 
             &:before,
@@ -34,7 +34,7 @@
         }
 
         &[data-player-turn="x"] {
-            .gameboard-item:not(.x):not(.o):hover:before {
+            .board-cell:not(.x):not(.o):hover:before {
                 background-color: theme(colors.primary);
                 mask-image: url("../img/icon-x-outline.svg");
                 opacity: 1;
@@ -42,7 +42,7 @@
         }
 
         &[data-player-turn="o"] {
-            .gameboard-item:not(.x):not(.o):hover:before {
+            .board-cell:not(.x):not(.o):hover:before {
                 background-color: theme(colors.secondary);
                 -webkit-mask-image: url("../img/icon-o-outline.svg");
                 mask-image: url("../img/icon-o-outline.svg");
