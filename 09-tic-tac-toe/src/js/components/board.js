@@ -17,8 +17,14 @@ export default {
     ];
 
     this.events();
+    this.clearEvents();
     this.setBoardMark();
     pubsub.subscribe("resetGame", this.resetGame.bind(this));
+  },
+  clearEvents: function () {
+    this.cells.forEach((cell) => {
+      cell.removeEventListener("click", this.handleTurn);
+    });
   },
   events: function () {
     this.cells.forEach((cell) => {
@@ -50,6 +56,7 @@ export default {
     this.turn = true;
     this.setBoardMark();
     this.clearBoardCells();
+    this.clearEvents();
     this.events();
   },
   clearBoardCells: function () {
