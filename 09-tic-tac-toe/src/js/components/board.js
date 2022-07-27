@@ -1,48 +1,75 @@
 import pubsub from "../library/pubsub";
 
 export default {
+  element: document.querySelector("#board"),
+  cells: document.querySelectorAll(".board-cell"),
+  winningPatterns: [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ],
   init: function () {
-    this.turn = true; // x is true, o is false
-    this.element = document.querySelector("#board");
-    this.cells = document.querySelectorAll(".board-cell");
-    this.winCombinations = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-
-    this.events();
-    this.clearEvents();
-    this.setBoardMark();
+    pubsub.subscribe("newGameVsPlayer", this.startGame.bind(this));
     pubsub.subscribe("resetGame", this.resetGame.bind(this));
+  },
+  startGame: function (turn) {
+    this.turn = turn; // x is true, o is false
+    this.events();
+    this.setBoardMark();
   },
   clearEvents: function () {
     this.cells.forEach((cell) => {
-      cell.removeEventListener("click", this.handleTurn);
+      cell.removeEventListener("click", this);
     });
   },
   events: function () {
     this.cells.forEach((cell) => {
-      cell.addEventListener("click", this.handleTurn.bind(this), {
+      cell.addEventListener("click", this, {
         once: true,
       });
     });
   },
-  addMark: function (e) {
-    e.currentTarget.classList.add(this.turn ? "x" : "o");
+  addMark: function (target) {
+    target.classList.add(this.turn ? "x" : "o");
   },
   setBoardMark: function () {
     this.element.dataset.playerTurn = this.turn ? "x" : "o";
     pubsub.publish("setBoardMark", this.turn);
   },
+  markWinnerPattern: function () {
+    const winnerPattern = this.getWinnerPattern();
+    console.log(winnerPattern);
+    if (winnerPattern !== null) {
+      winnerPattern.forEach((patternIndex) => {
+        this.cells[patternIndex].classList.add("inverted");
+      });
+    }
+  },
+  getWinnerPattern: function () {
+    let pattern = null;
+    this.winningPatterns.every((winningPattern) => {
+      let check = winningPattern.every((index) => {
+        return this.cells[index].classList.contains(this.turn ? "x" : "o");
+      });
+
+      if (check) {
+        pattern = winningPattern;
+        return false;
+      }
+
+      return true;
+    });
+
+    return pattern;
+  },
   checkWin: function () {
-    return this.winCombinations.some((combinations) => {
-      return combinations.every((index) => {
+    return this.winningPatterns.some((winningPattern) => {
+      return winningPattern.every((index) => {
         return this.cells[index].classList.contains(this.turn ? "x" : "o");
       });
     });
@@ -63,21 +90,24 @@ export default {
     this.cells.forEach((cell) => {
       cell.classList.remove("x");
       cell.classList.remove("o");
+      cell.classList.remove("inverted");
     });
   },
-  handleTurn: function (e) {
+  handleEvent: function (event) {
     pubsub.publish("playerTurn", this.turn);
-    this.addMark(e);
+
+    this.addMark(event.currentTarget);
 
     if (this.checkWin()) {
-      pubsub.publish("playerWin", this.turn);
-    } else {
-      if (this.checkDraw()) {
-        pubsub.publish("playerDraw");
-      }
-    }
+      this.clearEvents();
+      this.markWinnerPattern();
 
-    this.turn = !this.turn;
-    this.setBoardMark();
+      pubsub.publish("playerWin", this.turn);
+    } else if (this.checkDraw()) {
+      pubsub.publish("playerDraw");
+    } else {
+      this.turn = !this.turn;
+      this.setBoardMark();
+    }
   },
 };

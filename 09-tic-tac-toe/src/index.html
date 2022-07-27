@@ -19,7 +19,10 @@
   </head>
   <body>
     <!-- New game menu start -->
-    <section id="newGameScreen" class="screen hidden">
+    <section
+      id="newGameScreen"
+      class="screen absolute inset-0 z-20 bg-dark-navy"
+    >
       <div class="py-30 px-6 text-center md:py-70 md:px-0">
         <img
           class="mb-8 inline-block md:mb-10"
@@ -31,7 +34,7 @@
         >
           <!-- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/switch_role -->
           <label
-            for="playerOneMark"
+            for="markPicker"
             class="switch-label mb-6 block text-xs font-bold uppercase text-tertiary"
           >
             Pick player 1's mark
@@ -40,7 +43,7 @@
             type="button"
             role="switch"
             aria-checked="true"
-            id="playerOneMark"
+            id="markPicker"
             class="switch"
           >
             <span aria-hidden="true">
@@ -60,7 +63,9 @@
         <button class="btn btn-lg btn-primary mb-4 md:mb-5">
           New Game (vs CPU)
         </button>
-        <button class="btn btn-lg btn-secondary">New Game (vs player)</button>
+        <button id="newGameVsPlayerBtn" class="btn btn-lg btn-secondary">
+          New Game (vs player)
+        </button>
       </div>
     </section>
 
@@ -109,7 +114,7 @@
             class="font- w-full rounded-sm bg-primary py-3 px-4.5"
           >
             <span class="js-stat-label block text-xs1 font-medium">
-              X (You)
+              X (PLAYER 1)
             </span>
             <strong class="js-stat-value block text-sm font-bold">0</strong>
           </div>
@@ -119,7 +124,7 @@
           </div>
           <div id="oStat" class="w-full rounded-sm bg-secondary py-3 px-4.5">
             <span class="js-stat-label block text-xs1 font-medium">
-              O (CPU)
+              O (PLAYER 2)
             </span>
             <strong class="js-stat-value block text-sm font-bold">0</strong>
           </div>

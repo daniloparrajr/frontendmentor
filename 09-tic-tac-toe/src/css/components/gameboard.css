@@ -5,7 +5,7 @@
         gap: 20px;
 
         &-cell {
-            @apply cursor-pointer relative shadow-md rounded bg-dark-navy-light lg:rounded-lg aspect-square;
+            @apply cursor-pointer relative shadow-md rounded bg-dark-navy-light lg:rounded-lg aspect-square transition-colors;
 
             &:before,
             &:before {
@@ -23,13 +23,25 @@
             }
 
             &.x:before {
+                @apply bg-primary;
                 mask-image: url("../img/icon-x.svg");
-                background-color: theme(colors.primary);
             }
 
             &.o:before {
+                @apply bg-secondary;
                 mask-image: url("../img/icon-o.svg");
-                background-color: theme(colors.secondary);
+            }
+
+            &.inverted:before {
+                @apply bg-dark-navy;
+            }
+
+            &.x.inverted {
+                @apply bg-primary shadow-primary-dark;
+            }
+
+            &.o.inverted {
+                @apply bg-secondary shadow-secondary-dark;
             }
         }
 
