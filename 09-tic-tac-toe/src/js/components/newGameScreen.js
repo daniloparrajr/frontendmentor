@@ -2,6 +2,7 @@ import pubsub from "../library/pubsub";
 
 export default {
   screen: document.querySelector("#newGameScreen"),
+  playerOneMark: true,
   init: function () {
     this.markPicker = this.screen.querySelector("#markPicker");
     this.newGameVsPlayerBtn = this.screen.querySelector("#newGameVsPlayerBtn");
