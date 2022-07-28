@@ -8,8 +8,10 @@ import turnIndicator from "./components/turnIndicator";
 import resetBtn from "./components/resetBtn";
 import stats from "./components/stats";
 import newGameScreen from "./components/newGameScreen";
+import modal from "./components/modal";
 
 document.addEventListener("DOMContentLoaded", function () {
+  modal.init();
   newGameScreen.init();
   stats.init();
   resetBtn.init();

@@ -1,14 +1,11 @@
 @layer components {
     .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        @apply inset-0 fixed z-50;
     }
 
     .modal:before {
         content: '';
+        @apply absolute z-10;
         position: absolute;
         z-index: 10;
         background: #000000;
@@ -18,6 +15,6 @@
     }
 
     .modal-body {
-        @apply relative mt-52 bg-dark-navy-light p-10 pb-12 z-20 text-center;
+        @apply absolute inset-x-0 bg-dark-navy-light p-10 pb-12 z-20 text-center z-20 top-1/2 -translate-y-2/4;
     }
 }
