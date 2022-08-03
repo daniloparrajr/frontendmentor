@@ -33,12 +33,13 @@ export default {
   updateStatLabel: function (turn) {
     let xStatLabelEl = this.xStat.querySelector(".js-stat-label");
     let oStatLabelEl = this.oStat.querySelector(".js-stat-label");
+
     if (turn) {
-      xStatLabelEl.textContent = "X (PLAYER 1)";
-      oStatLabelEl.textContent = "O (PLAYER 2)";
+      xStatLabelEl.textContent = "(P1)";
+      oStatLabelEl.textContent = "(P2)";
     } else {
-      xStatLabelEl.textContent = "O (PLAYER 2)";
-      oStatLabelEl.textContent = "X (PLAYER 1)";
+      xStatLabelEl.textContent = "(P2)";
+      oStatLabelEl.textContent = "(P1)";
     }
   },
 };
