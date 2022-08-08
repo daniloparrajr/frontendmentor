@@ -3,6 +3,7 @@ import "../icons/icon-restart.svg";
 import "../icons/icon-x.svg";
 import "../icons/icon-o.svg";
 
+import Game from "./components/game";
 import Board from "./components/board";
 
 // import turnIndicator from "./components/turnIndicator";
@@ -18,6 +19,8 @@ import Board from "./components/board";
 // turnIndicator.init();
 // board.init(true);
 
+const gameInstance = new Game();
 const boardInstance = new Board();
 
 boardInstance.render();
+gameInstance.render();

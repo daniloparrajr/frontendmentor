@@ -4,4 +4,9 @@ export default {
 
     return state;
   },
+  setPlayerOneMark(state, payload) {
+    state.playerOneMark = payload;
+
+    return state;
+  },
 };

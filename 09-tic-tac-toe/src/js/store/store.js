@@ -36,15 +36,15 @@ export default function Store(params) {
       console.log(`stateChange: ${key}: ${value}`);
 
       // Publish the change event for the components that are listening
-      this.events.publish("stateChange", this.state);
+      self.events.publish("stateChange", self.state);
 
       // Give the user a little telling off if they set a value directly
-      if (this.status !== "mutation") {
+      if (self.status !== "mutation") {
         console.warn(`You should use a mutation to set ${key}`);
       }
 
       // Reset the status ready for the next operation
-      this.status = "resting";
+      self.status = "resting";
 
       return true;
     },
@@ -56,7 +56,7 @@ export default function Store(params) {
  * collection and runs the action if it can find it
  *
  * @param {string} actionKey
- * @param {mixed} payload
+ * @param {boolean} payload
  * @returns {boolean}
  * @memberof Store
  */

@@ -16,4 +16,10 @@ Board.prototype = Object.create(Component.prototype);
 // To avoid that, we set the prototype.constructor to Rectangle (child).
 Board.prototype.constructor = Board;
 
-Board.prototype.render = function () {};
+Board.prototype.render = function () {
+  this.setBoardMark();
+};
+
+Board.prototype.setBoardMark = function () {
+  this.element.dataset.playerTurn = store.state.turn;
+};

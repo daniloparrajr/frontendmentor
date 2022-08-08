@@ -1,8 +1,8 @@
 export default {
-  addItem(context, payload) {
-    context.commit("addItem", payload);
+  swapTurn(context, payload) {
+    context.commit("swapTurn", payload);
   },
-  clearItem(context, payload) {
-    context.commit("clearItem", payload);
+  setPlayerOneMark(context, payload) {
+    context.commit("setPlayerOneMark", payload);
   },
 };

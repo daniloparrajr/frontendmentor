@@ -13,6 +13,4 @@ export default function Component(props = {}) {
   }
 }
 
-Component.prototype.render = function () {
-  console.log("tf!");
-};
+Component.prototype.render = function () {};
