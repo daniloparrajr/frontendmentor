@@ -132,21 +132,8 @@
       </div>
     </section>
 
-    <div id="modal" class="modal hidden">
-      <div class="modal-body hidden">
-        <p class="text-base font-bold uppercase">PLAYER 1 WINS!</p>
-        <div
-          class="mt-4 flex items-center justify-center space-x-2 text-secondary"
-        >
-          <svg class="block text-lg"><use xlink:href="#icon-o"></use></svg>
-          <span class="block text-md font-bold">TAKES THE ROUND</span>
-        </div>
-        <div class="mt-6 flex justify-center space-x-4">
-          <button class="btn btn-tertiary">Quit</button>
-          <button class="btn btn-secondary">Next round</button>
-        </div>
-      </div>
-      <div class="modal-body hidden">
+    <template id="modalWinnerMessage">
+      <div class="modal-body">
         <p class="text-base font-bold uppercase">PLAYER 1 WINS!</p>
         <div
           class="mt-4 flex items-center justify-center space-x-2 text-primary"
@@ -155,28 +142,42 @@
           <span class="block text-md font-bold">TAKES THE ROUND</span>
         </div>
         <div class="mt-6 flex justify-center space-x-4">
-          <button class="btn btn-tertiary">Quit</button>
-          <button class="btn btn-secondary">Next round</button>
+          <button class="js-btn-quit btn btn-tertiary">Quit</button>
+          <button class="js-btn-next btn btn-secondary">Next round</button>
         </div>
       </div>
-      <div class="modal-body hidden py-15">
-        <p class="text-base text-md font-bold uppercase text-tertiary">
-          ROUND TIED
-        </p>
+    </template>
+
+    <template id="modalTieMessage">
+      <div class="modal-body">
+        <p class="text-base font-bold uppercase">PLAYER 1 WINS!</p>
+        <div
+          class="mt-4 flex items-center justify-center space-x-2 text-primary"
+        >
+          <svg class="block text-lg"><use xlink:href="#icon-x"></use></svg>
+          <span class="block text-md font-bold">TAKES THE ROUND</span>
+        </div>
         <div class="mt-6 flex justify-center space-x-4">
-          <button class="btn btn-tertiary">Quit</button>
-          <button class="btn btn-secondary">Next round</button>
+          <button class="js-btn-quit btn btn-tertiary">Quit</button>
+          <button class="js-btn-next btn btn-secondary">Next round</button>
         </div>
       </div>
+    </template>
+
+    <template id="modalRestartMessage">
       <div class="modal-body py-15">
         <p class="text-base text-md font-bold uppercase text-tertiary">
           RESTART THE GAME?
         </p>
         <div class="mt-6 flex justify-center space-x-4">
-          <button class="btn btn-tertiary">NO, CANCEL</button>
-          <button class="btn btn-secondary">YES, RESTART</button>
+          <button class="js-btn-cancel-restart btn btn-tertiary">
+            NO, CANCEL
+          </button>
+          <button class="js-btn-restart btn btn-secondary">YES, RESTART</button>
         </div>
       </div>
-    </div>
+    </template>
+
+    <div id="modal" class="modal hidden"></div>
   </body>
 </html>

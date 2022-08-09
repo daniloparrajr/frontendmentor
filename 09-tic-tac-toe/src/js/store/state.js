@@ -6,4 +6,7 @@ export default {
   drawScore: 0,
   xScore: 0,
   oScore: 0,
+  showModal: false,
+  roundWinner: "p1", // p1, p2, cpu, tie
+  reset: false,
 };

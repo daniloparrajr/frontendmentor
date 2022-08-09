@@ -14,10 +14,24 @@ export default {
 
     return state;
   },
-  setWinner(state, winner) {
-    if (winner === "x") {
+  setRoundWinner(state, winnerMark) {
+    if (state.opponent === "p2") {
+      if (
+        (winnerMark === "x" && state.p1Mark === "x") ||
+        (winnerMark === "o" && state.p1Mark === "o")
+      ) {
+        state.roundWinner = "p1";
+      } else {
+        state.roundWinner = "p2";
+      }
+    }
+
+    return state;
+  },
+  setWinnerScore(state, winnerMark) {
+    if (winnerMark === "x") {
       state.xScore++;
-    } else if (winner === "o") {
+    } else if (winnerMark === "o") {
       state.oScore++;
     }
 
@@ -25,6 +39,11 @@ export default {
   },
   setDraw(state, payload) {
     state.drawScore++;
+
+    return state;
+  },
+  setModal(state, payload) {
+    state.showModal = payload;
 
     return state;
   },

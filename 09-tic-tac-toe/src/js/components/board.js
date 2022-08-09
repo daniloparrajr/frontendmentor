@@ -60,13 +60,47 @@ Board.prototype.bindEvents = function () {
   });
 };
 
+Board.prototype.clearEvents = function () {
+  this.cells.forEach((cell) => {
+    cell.removeEventListener("click", this);
+  });
+};
+
+Board.prototype.getWinnerPattern = function () {
+  let pattern = null;
+  this.winningPatterns.every((winningPattern) => {
+    let check = winningPattern.every((index) => {
+      return this.cells[index].classList.contains(store.state.turn);
+    });
+
+    if (check) {
+      pattern = winningPattern;
+      return false;
+    }
+
+    return true;
+  });
+
+  return pattern;
+};
+
+Board.prototype.markWinnerPattern = function () {
+  const winnerPattern = this.getWinnerPattern();
+
+  if (winnerPattern !== null) {
+    winnerPattern.forEach((patternIndex) => {
+      this.cells[patternIndex].classList.add("inverted");
+    });
+  }
+};
+
 Board.prototype.handleEvent = function (event) {
   this.addMark(event.currentTarget);
 
   if (this.checkWin()) {
-    // this.clearEvents();
-    // this.markWinnerPattern();
-    store.dispatch("setWinner", store.state.turn);
+    this.clearEvents();
+    this.markWinnerPattern();
+    store.dispatch("roundWinner", store.state.turn);
   } else if (this.checkDraw()) {
     store.dispatch("setDraw", "");
   } else {

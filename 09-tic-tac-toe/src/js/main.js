@@ -7,26 +7,16 @@ import Game from "./components/game";
 import Board from "./components/board";
 import turnIndicator from "./components/turnIndicator";
 import Stats from "./components/stats";
-
-// import turnIndicator from "./components/turnIndicator";
-// import resetBtn from "./components/resetBtn";
-// import stats from "./components/stats";
-// import game from "./components/newGameScreen";
-// import modal from "./components/modal";
-//
-// game.init();
-// modal.init();
-// stats.init();
-// resetBtn.init();
-// turnIndicator.init();
-// board.init(true);
+import Modal from "./components/modal";
 
 const gameInstance = new Game();
 const boardInstance = new Board();
 const turnIndicatorInstance = new turnIndicator();
 const statsInstance = new Stats();
+const modalInstance = new Modal();
 
 boardInstance.render();
 gameInstance.render();
 turnIndicatorInstance.render();
 statsInstance.render();
+modalInstance.render();
