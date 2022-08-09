@@ -56,7 +56,7 @@ export default function Store(params) {
  * collection and runs the action if it can find it
  *
  * @param {string} actionKey
- * @param {boolean} payload
+ * @param {mixed} payload
  * @returns {boolean}
  * @memberof Store
  */

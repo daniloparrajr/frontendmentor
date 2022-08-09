@@ -1,8 +1,9 @@
 export default {
-  playerOneMark: "x",
+  p1Mark: "x",
+  opponent: "p2", // or cpu
+  opponentMark: "o",
   turn: "x",
-  tie: 0,
-  p1: 0,
-  p2: 0,
-  cpu: 0,
+  drawScore: 0,
+  xScore: 0,
+  oScore: 0,
 };

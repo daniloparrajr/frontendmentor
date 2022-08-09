@@ -43,7 +43,7 @@ export default {
   },
   markWinnerPattern: function () {
     const winnerPattern = this.getWinnerPattern();
-    console.log(winnerPattern);
+
     if (winnerPattern !== null) {
       winnerPattern.forEach((patternIndex) => {
         this.cells[patternIndex].classList.add("inverted");

@@ -9,16 +9,16 @@ export default function Game() {
 
   this.markPicker = document.querySelector("#markPicker");
   this.newGameVsPlayerBtn = document.querySelector("#newGameVsPlayerBtn");
-  this.playerOneMark = store.state.playerOneMark;
+  this.p1Mark = store.state.p1Mark;
   this.events();
 }
 
-// Board extends Component
+// Game extends Component
 Game.prototype = Object.create(Component.prototype);
 
-// If you don't set Board.prototype.constructor to Board,
+// If you don't set Game.prototype.constructor to Game,
 // it will take the prototype.constructor of Component (parent).
-// To avoid that, we set the prototype.constructor to Rectangle (child).
+// To avoid that, we set the prototype.constructor to Game (child).
 Game.prototype.constructor = Game;
 
 Game.prototype.events = function () {
@@ -33,11 +33,12 @@ Game.prototype.events = function () {
 Game.prototype.toggleMark = function (e) {
   const picker = e.currentTarget;
   let prevMark = picker.getAttribute("aria-checked");
-  this.playerOneMark = prevMark !== "true" ? "x" : "o";
+  this.p1Mark = prevMark !== "true" ? "x" : "o";
   picker.setAttribute("aria-checked", prevMark !== "true");
 };
 
 Game.prototype.newGameVsPlayer = function () {
   this.element.classList.add("hidden");
-  store.dispatch("setPlayerOneMark", this.playerOneMark);
+  store.dispatch("setP1Mark", this.p1Mark);
+  store.dispatch("setOpponent", "p2");
 };

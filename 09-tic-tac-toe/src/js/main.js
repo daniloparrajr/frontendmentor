@@ -5,6 +5,8 @@ import "../icons/icon-o.svg";
 
 import Game from "./components/game";
 import Board from "./components/board";
+import turnIndicator from "./components/turnIndicator";
+import Stats from "./components/stats";
 
 // import turnIndicator from "./components/turnIndicator";
 // import resetBtn from "./components/resetBtn";
@@ -21,6 +23,10 @@ import Board from "./components/board";
 
 const gameInstance = new Game();
 const boardInstance = new Board();
+const turnIndicatorInstance = new turnIndicator();
+const statsInstance = new Stats();
 
 boardInstance.render();
 gameInstance.render();
+turnIndicatorInstance.render();
+statsInstance.render();

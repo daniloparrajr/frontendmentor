@@ -1,8 +1,17 @@
 export default {
-  swapTurn(context, payload) {
-    context.commit("swapTurn", payload);
+  nextTurn(context, payload) {
+    context.commit("nextTurn", payload);
   },
-  setPlayerOneMark(context, payload) {
-    context.commit("setPlayerOneMark", payload);
+  setP1Mark(context, payload) {
+    context.commit("setP1Mark", payload);
+  },
+  setOpponent(context, payload) {
+    context.commit("setOpponent", payload);
+  },
+  setWinner(context, payload) {
+    context.commit("setWinner", payload);
+  },
+  setDraw(context, payload) {
+    context.commit("setDraw", payload);
   },
 };
