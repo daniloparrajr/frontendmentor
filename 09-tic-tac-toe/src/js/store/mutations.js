@@ -47,4 +47,14 @@ export default {
 
     return state;
   },
+  nextRound(state, payload) {
+    state.nextRound = payload;
+
+    if (payload === true) {
+      state.showModal = false;
+      state.turn = "x";
+    }
+
+    return state;
+  },
 };

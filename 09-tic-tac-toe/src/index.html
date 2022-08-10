@@ -134,41 +134,41 @@
 
     <template id="modalWinnerMessage">
       <div class="modal-body">
-        <p class="text-base font-bold uppercase">PLAYER 1 WINS!</p>
-        <div
-          class="mt-4 flex items-center justify-center space-x-2 text-primary"
+        <p class="js-modal-text text-base font-bold uppercase">
+          PLAYER 1 WINS!
+        </p>
+        <h2
+          class="js-modal-title mt-4 flex items-center justify-center space-x-2"
         >
-          <svg class="block text-lg"><use xlink:href="#icon-x"></use></svg>
+          <svg class="js-modal-icon block text-lg">
+            <use xlink:href="#icon-x"></use>
+          </svg>
           <span class="block text-md font-bold">TAKES THE ROUND</span>
-        </div>
+        </h2>
         <div class="mt-6 flex justify-center space-x-4">
           <button class="js-btn-quit btn btn-tertiary">Quit</button>
-          <button class="js-btn-next btn btn-secondary">Next round</button>
+          <button class="js-btn-continue btn btn-secondary">Next round</button>
         </div>
       </div>
     </template>
 
     <template id="modalTieMessage">
-      <div class="modal-body">
-        <p class="text-base font-bold uppercase">PLAYER 1 WINS!</p>
-        <div
-          class="mt-4 flex items-center justify-center space-x-2 text-primary"
-        >
-          <svg class="block text-lg"><use xlink:href="#icon-x"></use></svg>
-          <span class="block text-md font-bold">TAKES THE ROUND</span>
-        </div>
+      <div class="modal-body py-15">
+        <h2 class="text-base text-md font-bold uppercase text-tertiary">
+          ROUND TIED
+        </h2>
         <div class="mt-6 flex justify-center space-x-4">
           <button class="js-btn-quit btn btn-tertiary">Quit</button>
-          <button class="js-btn-next btn btn-secondary">Next round</button>
+          <button class="js-btn-continue btn btn-secondary">Next round</button>
         </div>
       </div>
     </template>
 
     <template id="modalRestartMessage">
       <div class="modal-body py-15">
-        <p class="text-base text-md font-bold uppercase text-tertiary">
+        <h2 class="text-base text-md font-bold uppercase text-tertiary">
           RESTART THE GAME?
-        </p>
+        </h2>
         <div class="mt-6 flex justify-center space-x-4">
           <button class="js-btn-cancel-restart btn btn-tertiary">
             NO, CANCEL

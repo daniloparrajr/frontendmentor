@@ -9,11 +9,14 @@ export default {
     context.commit("setOpponent", payload);
   },
   roundWinner(context, winnerMark) {
+    context.commit("setRoundWinner", winnerMark);
     context.commit("setWinnerScore", winnerMark);
     context.commit("setModal", true);
-    context.commit("setRoundWinner", winnerMark);
   },
   setDraw(context, payload) {
     context.commit("setDraw", payload);
+  },
+  nextRound(context, payload) {
+    context.commit("nextRound", payload);
   },
 };

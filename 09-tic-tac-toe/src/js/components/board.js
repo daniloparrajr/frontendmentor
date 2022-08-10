@@ -28,6 +28,10 @@ Board.prototype.constructor = Board;
 
 Board.prototype.render = function () {
   this.setBoardMark();
+
+  if (store.state.nextRound === true) {
+    this.nextRound();
+  }
 };
 
 Board.prototype.setBoardMark = function () {
@@ -84,6 +88,19 @@ Board.prototype.getWinnerPattern = function () {
   return pattern;
 };
 
+Board.prototype.clearCellsClasses = function () {
+  this.cells.forEach((cell) => {
+    cell.classList.remove("x", "o", "inverted");
+  });
+};
+
+Board.prototype.nextRound = function () {
+  store.dispatch("nextRound", false);
+  this.clearCellsClasses();
+  this.clearEvents();
+  this.bindEvents();
+};
+
 Board.prototype.markWinnerPattern = function () {
   const winnerPattern = this.getWinnerPattern();
 
@@ -98,7 +115,6 @@ Board.prototype.handleEvent = function (event) {
   this.addMark(event.currentTarget);
 
   if (this.checkWin()) {
-    this.clearEvents();
     this.markWinnerPattern();
     store.dispatch("roundWinner", store.state.turn);
   } else if (this.checkDraw()) {

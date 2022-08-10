@@ -8,5 +8,6 @@ export default {
   oScore: 0,
   showModal: false,
   roundWinner: "p1", // p1, p2, cpu, tie
-  reset: false,
+  resetGame: false,
+  nextRound: false,
 };
