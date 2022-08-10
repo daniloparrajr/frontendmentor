@@ -118,7 +118,7 @@ Board.prototype.handleEvent = function (event) {
     this.markWinnerPattern();
     store.dispatch("roundWinner", store.state.turn);
   } else if (this.checkDraw()) {
-    store.dispatch("setDraw", "");
+    store.dispatch("roundDraw", true);
   } else {
     store.dispatch("nextTurn", store.state.turn);
     this.setBoardMark();

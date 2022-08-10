@@ -23,6 +23,11 @@ Modal.prototype.render = function () {
 
 Modal.prototype.setMessage = function () {
   if (store.state.roundWinner === "tie") {
+    const template = document.querySelector("#modalTieMessage");
+    const clone = template.content.cloneNode(true);
+
+    this.element.appendChild(clone);
+    return true;
   }
 
   if (store.state.roundWinner === "p1" || store.state.roundWinner === "p2") {
@@ -47,6 +52,7 @@ Modal.prototype.setMessage = function () {
       .setAttribute("xlink:href", modalIcon);
 
     this.element.appendChild(clone);
+    return true;
   }
 };
 

@@ -13,8 +13,9 @@ export default {
     context.commit("setWinnerScore", winnerMark);
     context.commit("setModal", true);
   },
-  setDraw(context, payload) {
+  roundDraw(context, payload) {
     context.commit("setDraw", payload);
+    context.commit("setModal", payload);
   },
   nextRound(context, payload) {
     context.commit("nextRound", payload);

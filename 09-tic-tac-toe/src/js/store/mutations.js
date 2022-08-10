@@ -39,7 +39,7 @@ export default {
   },
   setDraw(state, payload) {
     state.drawScore++;
-
+    state.roundWinner = "tie";
     return state;
   },
   setModal(state, payload) {
