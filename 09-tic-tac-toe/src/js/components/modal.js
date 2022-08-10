@@ -35,15 +35,30 @@ Modal.prototype.setMessage = function () {
     const clone = template.content.cloneNode(true);
     let modalText;
     let modalIcon = "#icon-";
+    let titleColor;
 
     if (store.state.roundWinner === "p1") {
       modalText = "PLAYER 1 WINS!";
       modalIcon += store.state.p1Mark;
-      clone.querySelector(".js-modal-title").classList.add("text-primary");
+
+      if (store.state.p1Mark === "x") {
+        clone.querySelector(".js-modal-title").classList.add("text-primary");
+      }
+
+      if (store.state.p1Mark === "o") {
+        clone.querySelector(".js-modal-title").classList.add("text-secondary");
+      }
     } else {
       modalText = "PLAYER 2 WINS!";
       modalIcon += store.state.opponentMark;
-      clone.querySelector(".js-modal-title").classList.add("text-secondary");
+
+      if (store.state.opponentMark === "x") {
+        clone.querySelector(".js-modal-title").classList.add("text-primary");
+      }
+
+      if (store.state.opponentMark === "o") {
+        clone.querySelector(".js-modal-title").classList.add("text-secondary");
+      }
     }
 
     clone.querySelector(".js-modal-text").textContent = modalText;
