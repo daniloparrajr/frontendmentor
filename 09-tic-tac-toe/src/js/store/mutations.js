@@ -47,6 +47,23 @@ export default {
 
     return state;
   },
+  resetScores(state, payload) {
+    state.xScore = 0;
+    state.oScore = 0;
+    state.drawScore = 0;
+
+    return state;
+  },
+  setNewGame(state, payload) {
+    state.newGame = payload;
+
+    return state;
+  },
+  resetGame(state, payload) {
+    state.resetGame = payload;
+
+    return state;
+  },
   nextRound(state, payload) {
     state.nextRound = payload;
 

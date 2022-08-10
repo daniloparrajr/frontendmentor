@@ -7,7 +7,7 @@ export default {
   xScore: 0,
   oScore: 0,
   showModal: false,
-  roundWinner: "p1", // p1, p2, cpu, tie
+  roundWinner: "none", // p1, p2, cpu, tie
   resetGame: false,
   nextRound: false,
 };

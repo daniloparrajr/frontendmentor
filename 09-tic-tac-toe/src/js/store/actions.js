@@ -20,4 +20,15 @@ export default {
   nextRound(context, payload) {
     context.commit("nextRound", payload);
   },
+  startNewGame(context, payload) {
+    context.commit("setNewGame", true);
+    context.commit("setP1Mark", payload.p1Mark);
+    context.commit("setOpponent", payload.opponent);
+  },
+  resetGame(context, payload) {
+    context.commit("resetGame", payload);
+    context.commit("resetScores", payload);
+    context.commit("setModal", false);
+    context.commit("setNewGame", true);
+  },
 };

@@ -30,7 +30,13 @@ Board.prototype.render = function () {
   this.setBoardMark();
 
   if (store.state.nextRound === true) {
-    this.nextRound();
+    this.resetBoard();
+    store.dispatch("nextRound", false);
+  }
+
+  if (store.state.resetGame === true) {
+    this.resetBoard();
+    store.dispatch("resetGame", false);
   }
 };
 
@@ -94,8 +100,7 @@ Board.prototype.clearCellsClasses = function () {
   });
 };
 
-Board.prototype.nextRound = function () {
-  store.dispatch("nextRound", false);
+Board.prototype.resetBoard = function () {
   this.clearCellsClasses();
   this.clearEvents();
   this.bindEvents();

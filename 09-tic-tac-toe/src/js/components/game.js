@@ -30,6 +30,20 @@ Game.prototype.events = function () {
   );
 };
 
+Game.prototype.render = function () {
+  if (store.state.resetGame === true) {
+    this.showNewGameScreen();
+  }
+};
+
+Game.prototype.showNewGameScreen = function () {
+  this.element.classList.remove("hidden");
+};
+
+Game.prototype.hideNewGameScreen = function () {
+  this.element.classList.add("hidden");
+};
+
 Game.prototype.toggleMark = function (e) {
   const picker = e.currentTarget;
   let prevMark = picker.getAttribute("aria-checked");
@@ -38,7 +52,6 @@ Game.prototype.toggleMark = function (e) {
 };
 
 Game.prototype.newGameVsPlayer = function () {
-  this.element.classList.add("hidden");
-  store.dispatch("setP1Mark", this.p1Mark);
-  store.dispatch("setOpponent", "p2");
+  this.hideNewGameScreen();
+  store.dispatch("startNewGame", { p1Mark: this.p1Mark, opponent: "p2" });
 };
