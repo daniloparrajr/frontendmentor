@@ -22,6 +22,14 @@ Modal.prototype.render = function () {
 };
 
 Modal.prototype.setMessage = function () {
+  if (store.state.resetModal === true) {
+    const template = document.querySelector("#modalRestartMessage");
+    const clone = template.content.cloneNode(true);
+
+    this.element.appendChild(clone);
+    return true;
+  }
+
   if (store.state.roundWinner === "tie") {
     const template = document.querySelector("#modalTieMessage");
     const clone = template.content.cloneNode(true);
@@ -35,7 +43,6 @@ Modal.prototype.setMessage = function () {
     const clone = template.content.cloneNode(true);
     let modalText;
     let modalIcon = "#icon-";
-    let titleColor;
 
     if (store.state.roundWinner === "p1") {
       modalText = "PLAYER 1 WINS!";
@@ -82,6 +89,7 @@ Modal.prototype.hide = function () {
 Modal.prototype.bindEvents = function () {
   this.quitButtons = this.element.querySelectorAll(".js-btn-quit");
   this.continueButtons = this.element.querySelectorAll(".js-btn-continue");
+  this.closeButtons = this.element.querySelectorAll(".js-btn-close");
 
   this.quitButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -92,6 +100,12 @@ Modal.prototype.bindEvents = function () {
   this.continueButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       store.dispatch("nextRound", true);
+    });
+  });
+
+  this.closeButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      store.dispatch("resetModal", false);
     });
   });
 };

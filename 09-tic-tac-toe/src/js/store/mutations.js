@@ -42,6 +42,12 @@ export default {
     state.roundWinner = "tie";
     return state;
   },
+  resetModal(state, payload) {
+    state.resetModal = payload;
+    state.showModal = payload;
+
+    return state;
+  },
   setModal(state, payload) {
     state.showModal = payload;
 

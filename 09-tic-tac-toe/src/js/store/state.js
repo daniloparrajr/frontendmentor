@@ -10,4 +10,5 @@ export default {
   roundWinner: "none", // p1, p2, cpu, tie
   resetGame: false,
   nextRound: false,
+  resetModal: false,
 };

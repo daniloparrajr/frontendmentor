@@ -9,6 +9,7 @@ export default function Game() {
 
   this.markPicker = document.querySelector("#markPicker");
   this.newGameVsPlayerBtn = document.querySelector("#newGameVsPlayerBtn");
+  this.resetModalBtn = document.querySelector("#resetModalBtn");
   this.p1Mark = store.state.p1Mark;
   this.events();
 }
@@ -28,6 +29,10 @@ Game.prototype.events = function () {
     "click",
     this.newGameVsPlayer.bind(this)
   );
+
+  this.resetModalBtn.addEventListener("click", () => {
+    store.dispatch("resetModal", true);
+  });
 };
 
 Game.prototype.render = function () {
