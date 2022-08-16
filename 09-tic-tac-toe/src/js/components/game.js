@@ -9,6 +9,7 @@ export default function Game() {
 
   this.markPicker = document.querySelector("#markPicker");
   this.newGameVsPlayerBtn = document.querySelector("#newGameVsPlayerBtn");
+  this.newGameVsCpuBtn = document.querySelector("#newGameVsCpuBtn");
   this.resetModalBtn = document.querySelector("#resetModalBtn");
   this.p1Mark = store.state.p1Mark;
   this.events();
@@ -23,12 +24,16 @@ Game.prototype = Object.create(Component.prototype);
 Game.prototype.constructor = Game;
 
 Game.prototype.events = function () {
+  const self = this;
   this.markPicker.addEventListener("click", this.toggleMark.bind(this));
 
-  this.newGameVsPlayerBtn.addEventListener(
-    "click",
-    this.newGameVsPlayer.bind(this)
-  );
+  this.newGameVsPlayerBtn.addEventListener("click", () => {
+    self.newGame("p2");
+  });
+
+  this.newGameVsCpuBtn.addEventListener("click", () => {
+    self.newGame("cpu");
+  });
 
   this.resetModalBtn.addEventListener("click", () => {
     store.dispatch("resetModal", true);
@@ -56,7 +61,12 @@ Game.prototype.toggleMark = function (e) {
   picker.setAttribute("aria-checked", prevMark !== "true");
 };
 
-Game.prototype.newGameVsPlayer = function () {
+Game.prototype.newGame = function (opponent) {
   this.hideNewGameScreen();
-  store.dispatch("startNewGame", { p1Mark: this.p1Mark, opponent: "p2" });
+  const opponentMark = this.p1Mark === "x" ? "o" : "x";
+  store.dispatch("startNewGame", {
+    p1Mark: this.p1Mark,
+    opponent,
+    opponentMark,
+  });
 };

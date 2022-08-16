@@ -4,13 +4,18 @@ export default {
 
     return state;
   },
-  setP1Mark(state, payload) {
-    state.p1Mark = payload;
+  setP1Mark(state, mark) {
+    state.p1Mark = mark;
 
     return state;
   },
-  setOpponent(state, payload) {
-    state.opponent = payload;
+  setOpponent(state, opponent) {
+    state.opponent = opponent;
+
+    return state;
+  },
+  setOpponentMark(state, mark) {
+    state.opponentMark = mark;
 
     return state;
   },

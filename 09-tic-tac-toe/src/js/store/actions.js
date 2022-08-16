@@ -8,6 +8,9 @@ export default {
   setOpponent(context, payload) {
     context.commit("setOpponent", payload);
   },
+  setNewGame(context, payload) {
+    context.commit("setNewGame", payload);
+  },
   roundWinner(context, winnerMark) {
     context.commit("setRoundWinner", winnerMark);
     context.commit("setWinnerScore", winnerMark);
@@ -27,6 +30,7 @@ export default {
     context.commit("setNewGame", true);
     context.commit("setP1Mark", payload.p1Mark);
     context.commit("setOpponent", payload.opponent);
+    context.commit("setOpponentMark", payload.opponentMark);
   },
   resetGame(context, payload) {
     context.commit("resetGame", payload);

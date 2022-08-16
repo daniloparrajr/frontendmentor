@@ -11,4 +11,5 @@ export default {
   resetGame: false,
   nextRound: false,
   resetModal: false,
+  newGame: true,
 };

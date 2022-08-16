@@ -29,6 +29,15 @@ Board.prototype.constructor = Board;
 Board.prototype.render = function () {
   this.setBoardMark();
 
+  if (
+    store.state.opponent === "cpu" &&
+    store.state.turn === store.state.opponentMark &&
+    store.state.newGame === true
+  ) {
+    store.dispatch("setNewGame", false);
+    this.cpuTurn();
+  }
+
   if (store.state.nextRound === true) {
     this.resetBoard();
     store.dispatch("nextRound", false);
@@ -116,16 +125,57 @@ Board.prototype.markWinnerPattern = function () {
   }
 };
 
-Board.prototype.handleEvent = function (event) {
-  this.addMark(event.currentTarget);
+Board.prototype.getEmptyCells = function () {
+  return [...this.cells].filter((cell) => {
+    return !(cell.classList.contains("x") || cell.classList.contains("o"));
+  });
+};
 
+Board.prototype.getRandomEmptyCell = function () {
+  const emptyCells = this.getEmptyCells();
+  const min = 0;
+  const max = Math.floor(emptyCells.length);
+  const randomCellIndex = Math.floor(Math.random() * (max - min) + min);
+  return emptyCells[randomCellIndex];
+};
+
+Board.prototype.cpuTurn = function () {
+  this.addMark(this.getRandomEmptyCell());
+  this.checkRoundWinner();
+};
+
+Board.prototype.nextTurn = function () {
+  store.dispatch("nextTurn", store.state.turn);
+
+  if (
+    store.state.opponent === "cpu" &&
+    store.state.turn === store.state.opponentMark
+  ) {
+    this.cpuTurn();
+  } else {
+    this.setBoardMark();
+  }
+};
+
+Board.prototype.checkRoundWinner = function () {
   if (this.checkWin()) {
     this.markWinnerPattern();
     store.dispatch("roundWinner", store.state.turn);
   } else if (this.checkDraw()) {
     store.dispatch("roundDraw", true);
   } else {
-    store.dispatch("nextTurn", store.state.turn);
-    this.setBoardMark();
+    this.nextTurn();
   }
+};
+
+Board.prototype.handleEvent = function (event) {
+  if (
+    event.currentTarget.classList.contains("x") ||
+    event.currentTarget.classList.contains("o")
+  ) {
+    return false;
+  }
+
+  this.addMark(event.currentTarget);
+  this.checkRoundWinner();
 };
