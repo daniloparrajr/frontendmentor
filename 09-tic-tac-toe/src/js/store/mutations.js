@@ -14,73 +14,66 @@ export default {
 
     return state;
   },
-  setOpponentMark(state, mark) {
-    state.opponentMark = mark;
-
-    return state;
-  },
-  setRoundWinner(state, winnerMark) {
-    if (state.opponent === "p2") {
-      if (
-        (winnerMark === "x" && state.p1Mark === "x") ||
-        (winnerMark === "o" && state.p1Mark === "o")
-      ) {
-        state.roundWinner = "p1";
-      } else {
-        state.roundWinner = "p2";
-      }
-    }
-
-    return state;
-  },
-  setWinnerScore(state, winnerMark) {
-    if (winnerMark === "x") {
-      state.xScore++;
-    } else if (winnerMark === "o") {
-      state.oScore++;
-    }
-
-    return state;
-  },
-  setDraw(state, payload) {
-    state.drawScore++;
-    state.roundWinner = "tie";
-    return state;
-  },
   resetModal(state, payload) {
     state.resetModal = payload;
     state.showModal = payload;
 
     return state;
   },
-  setModal(state, payload) {
-    state.showModal = payload;
+  startNewGame(state, payload) {
+    state.p1Mark = payload.p1Mark;
+    state.opponent = payload.opponent;
+    state.opponentMark = payload.opponentMark;
 
     return state;
   },
-  resetScores(state, payload) {
-    state.xScore = 0;
-    state.oScore = 0;
-    state.drawScore = 0;
+  setRoundWinner(state, details) {
+    state.roundWinner = details.winner;
+    state.roundWinnerMark = details.winnerMark;
+    state.showModal = true;
+
+    if (details.winnerMark === "x") {
+      state.xScore++;
+    } else if (details.winnerMark === "o") {
+      state.oScore++;
+    }
 
     return state;
   },
-  setNewGame(state, payload) {
-    state.newGame = payload;
-
-    return state;
-  },
-  resetGame(state, payload) {
-    state.resetGame = payload;
-
-    return state;
-  },
-  nextRound(state, payload) {
+  setNextRound(state, payload) {
     state.nextRound = payload;
 
     if (payload === true) {
       state.showModal = false;
       state.turn = "x";
+      state.roundWinner = "none";
+    }
+
+    return state;
+  },
+  setRoundDraw(state) {
+    state.showModal = true;
+    state.drawScore++;
+    state.roundWinner = "tie";
+    return state;
+  },
+  setResetGame(state, payload) {
+    if (payload === true) {
+      state.p1Mark = "x";
+      state.opponent = "p2";
+      state.opponentMark = "o";
+      state.turn = "x";
+      state.drawScore = 0;
+      state.xScore = 0;
+      state.oScore = 0;
+      state.showModal = false;
+      state.roundWinner = "none";
+      state.resetGame = true;
+      state.nextRound = false;
+      state.resetModal = false;
+      state.newGame = true;
+    } else {
+      state.resetGame = false;
     }
 
     return state;

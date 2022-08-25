@@ -8,34 +8,22 @@ export default {
   setOpponent(context, payload) {
     context.commit("setOpponent", payload);
   },
-  setNewGame(context, payload) {
-    context.commit("setNewGame", payload);
+  roundWinner(context, details) {
+    context.commit("setRoundWinner", details);
   },
-  roundWinner(context, winnerMark) {
-    context.commit("setRoundWinner", winnerMark);
-    context.commit("setWinnerScore", winnerMark);
-    context.commit("setModal", true);
-  },
-  roundDraw(context, payload) {
-    context.commit("setDraw", payload);
-    context.commit("setModal", payload);
+  roundDraw(context) {
+    context.commit("setRoundDraw");
   },
   nextRound(context, payload) {
-    context.commit("nextRound", payload);
+    context.commit("setNextRound", payload);
   },
   resetModal(context, payload) {
     context.commit("resetModal", payload);
   },
   startNewGame(context, payload) {
-    context.commit("setNewGame", true);
-    context.commit("setP1Mark", payload.p1Mark);
-    context.commit("setOpponent", payload.opponent);
-    context.commit("setOpponentMark", payload.opponentMark);
+    context.commit("startNewGame", payload);
   },
   resetGame(context, payload) {
-    context.commit("resetGame", payload);
-    context.commit("resetScores", payload);
-    context.commit("setModal", false);
-    context.commit("setNewGame", true);
+    context.commit("setResetGame", payload);
   },
 };

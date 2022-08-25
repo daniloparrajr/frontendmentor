@@ -21,15 +21,29 @@ stats.prototype.render = function () {
 };
 
 stats.prototype.updateStatLabel = function () {
-  let xStatLabelEl = this.xStat.querySelector(".js-stat-label");
-  let oStatLabelEl = this.oStat.querySelector(".js-stat-label");
+  let xStatLabel = this.xStat.querySelector(".js-stat-label");
+  let oStatLabel = this.oStat.querySelector(".js-stat-label");
 
-  if (store.state.p1Mark === "x" && store.state.opponent === "p2") {
-    xStatLabelEl.textContent = "(P1)";
-    oStatLabelEl.textContent = "(P2)";
-  } else if (store.state.p1Mark === "o" && store.state.opponent === "p2") {
-    xStatLabelEl.textContent = "(P2)";
-    oStatLabelEl.textContent = "(P1)";
+  if (store.state.p1Mark === "x") {
+    xStatLabel.textContent = "(P1)";
+
+    if (store.state.opponent === "cpu") {
+      oStatLabel.textContent = "(CPU)";
+    }
+
+    if (store.state.opponent === "p2") {
+      oStatLabel.textContent = "(P2)";
+    }
+  } else {
+    oStatLabel.textContent = "(P1)";
+
+    if (store.state.opponent === "cpu") {
+      xStatLabel.textContent = "(CPU)";
+    }
+
+    if (store.state.opponent === "p2") {
+      xStatLabel.textContent = "(P2)";
+    }
   }
 };
 

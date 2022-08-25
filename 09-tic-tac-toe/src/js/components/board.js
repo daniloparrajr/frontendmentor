@@ -29,15 +29,6 @@ Board.prototype.constructor = Board;
 Board.prototype.render = function () {
   this.setBoardMark();
 
-  if (
-    store.state.opponent === "cpu" &&
-    store.state.turn === store.state.opponentMark &&
-    store.state.newGame === true
-  ) {
-    store.dispatch("setNewGame", false);
-    this.cpuTurn();
-  }
-
   if (store.state.nextRound === true) {
     this.resetBoard();
     store.dispatch("nextRound", false);
@@ -47,6 +38,14 @@ Board.prototype.render = function () {
     this.resetBoard();
     store.dispatch("resetGame", false);
   }
+
+  if (
+    store.state.roundWinner === "none" &&
+    store.state.opponent === "cpu" &&
+    store.state.turn === store.state.opponentMark
+  ) {
+    this.cpuTurn();
+  }
 };
 
 Board.prototype.setBoardMark = function () {
@@ -54,7 +53,12 @@ Board.prototype.setBoardMark = function () {
 };
 
 Board.prototype.addMark = function (cell) {
+  if (typeof cell === "undefined") {
+    return;
+  }
+
   cell.classList.add(store.state.turn);
+  cell.removeEventListener("click", this);
 };
 
 Board.prototype.checkWin = function () {
@@ -146,36 +150,35 @@ Board.prototype.cpuTurn = function () {
 
 Board.prototype.nextTurn = function () {
   store.dispatch("nextTurn", store.state.turn);
+  this.setBoardMark();
+};
 
-  if (
-    store.state.opponent === "cpu" &&
-    store.state.turn === store.state.opponentMark
-  ) {
-    this.cpuTurn();
+Board.prototype.getRoundWinnerBasedOnTurn = function () {
+  let details = {};
+
+  if (store.state.turn === store.state.p1Mark) {
+    details.winner = "p1";
+    details.winnerMark = store.state.p1Mark;
   } else {
-    this.setBoardMark();
+    details.winner = "opponent";
+    details.winnerMark = store.state.opponentMark;
   }
+
+  return details;
 };
 
 Board.prototype.checkRoundWinner = function () {
   if (this.checkWin()) {
     this.markWinnerPattern();
-    store.dispatch("roundWinner", store.state.turn);
+    store.dispatch("roundWinner", this.getRoundWinnerBasedOnTurn());
   } else if (this.checkDraw()) {
-    store.dispatch("roundDraw", true);
+    store.dispatch("roundDraw");
   } else {
     this.nextTurn();
   }
 };
 
 Board.prototype.handleEvent = function (event) {
-  if (
-    event.currentTarget.classList.contains("x") ||
-    event.currentTarget.classList.contains("o")
-  ) {
-    return false;
-  }
-
   this.addMark(event.currentTarget);
   this.checkRoundWinner();
 };

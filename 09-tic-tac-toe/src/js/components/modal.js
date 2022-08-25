@@ -22,6 +22,8 @@ Modal.prototype.render = function () {
 };
 
 Modal.prototype.setMessage = function () {
+  this.element.innerHTML = "";
+
   if (store.state.resetModal === true) {
     const template = document.querySelector("#modalRestartMessage");
     const clone = template.content.cloneNode(true);
@@ -38,37 +40,40 @@ Modal.prototype.setMessage = function () {
     return true;
   }
 
-  if (store.state.roundWinner === "p1" || store.state.roundWinner === "p2") {
+  if (store.state.roundWinner !== "tie") {
     const template = document.querySelector("#modalWinnerMessage");
     const clone = template.content.cloneNode(true);
     let modalText;
     let modalIcon = "#icon-";
+    let modalTitleColorClass = "";
 
     if (store.state.roundWinner === "p1") {
-      modalText = "PLAYER 1 WINS!";
       modalIcon += store.state.p1Mark;
 
-      if (store.state.p1Mark === "x") {
-        clone.querySelector(".js-modal-title").classList.add("text-primary");
-      }
-
-      if (store.state.p1Mark === "o") {
-        clone.querySelector(".js-modal-title").classList.add("text-secondary");
+      if (store.state.opponent === "cpu") {
+        modalText = "YOU WON!";
+      } else {
+        modalText = "PLAYER 1 WINS!";
       }
     } else {
-      modalText = "PLAYER 2 WINS!";
       modalIcon += store.state.opponentMark;
 
-      if (store.state.opponentMark === "x") {
-        clone.querySelector(".js-modal-title").classList.add("text-primary");
-      }
-
-      if (store.state.opponentMark === "o") {
-        clone.querySelector(".js-modal-title").classList.add("text-secondary");
+      if (store.state.opponent === "cpu") {
+        modalText = "OH NO, YOU LOST…";
+      } else {
+        modalText = "PLAYER 2 WINS!";
       }
     }
 
+    if (store.state.roundWinnerMark === "x") {
+      modalTitleColorClass = "text-primary";
+    } else {
+      modalTitleColorClass = "text-secondary";
+    }
+
+    clone.querySelector(".js-modal-title").classList.add(modalTitleColorClass);
     clone.querySelector(".js-modal-text").textContent = modalText;
+
     clone
       .querySelector(".js-modal-icon use")
       .setAttribute("xlink:href", modalIcon);
