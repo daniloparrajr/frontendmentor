@@ -53,8 +53,8 @@ export default {
   },
   setRoundDraw(state) {
     state.showModal = true;
-    state.drawScore++;
     state.roundWinner = "tie";
+    state.drawScore++;
     return state;
   },
   setResetGame(state, payload) {
