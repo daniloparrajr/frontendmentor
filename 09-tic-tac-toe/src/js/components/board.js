@@ -38,11 +38,12 @@ Board.prototype.render = function () {
     this.resetBoard();
     store.dispatch("resetGame", false);
   }
-
+  console.log(this.checkDraw());
   if (
     store.state.roundWinner === "none" &&
     store.state.opponent === "cpu" &&
-    store.state.turn === store.state.opponentMark
+    store.state.turn === store.state.opponentMark &&
+    this.checkDraw() === false
   ) {
     this.cpuTurn();
   }

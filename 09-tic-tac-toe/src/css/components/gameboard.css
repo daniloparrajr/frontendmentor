@@ -1,8 +1,7 @@
 @layer components {
     .board {
-        display: grid;
+        @apply grid gap-5;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
 
         &-cell {
             @apply cursor-pointer relative shadow-md rounded bg-dark-navy-light lg:rounded-lg aspect-square transition-colors;
