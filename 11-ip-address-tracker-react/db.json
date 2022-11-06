@@ -1,0 +1,48 @@
+{
+  "country,city": [
+    {
+      "id": 1,
+      "ip": "49.144.11.168",
+      "location": {
+        "country": "PH",
+        "region": "Calabarzon",
+        "city": "Banalo",
+        "lat": 14.45901,
+        "lng": 120.92848,
+        "postalCode": "",
+        "timezone": "+08:00",
+        "geonameId": 1727588
+      },
+      "as": {
+        "asn": 9299,
+        "name": "IPG-AS-AP",
+        "route": "49.144.0.0\/20",
+        "domain": "pldt.com.ph",
+        "type": "NSP"
+      },
+      "isp": "Philippine Long Distance Telephone Co."
+    },
+    {
+      "id": 2,
+      "ip": "49.144.11.167",
+      "location": {
+        "country": "LET GOO",
+        "region": "YOU GOOD!",
+        "city": "CAVITE!",
+        "lat": 14.45901,
+        "lng": 120.92848,
+        "postalCode": "",
+        "timezone": "+08:00",
+        "geonameId": 1727588
+      },
+      "as": {
+        "asn": 9299,
+        "name": "IPG-AS-AP",
+        "route": "49.144.0.0\/20",
+        "domain": "daniloparrajr.com",
+        "type": "NSP"
+      },
+      "isp": "BUHO!"
+    }
+  ]
+}

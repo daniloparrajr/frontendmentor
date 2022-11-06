@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply text-base;
+    }
+}
+
+@layer components {
+    .app-title {
+        @apply text-white mb-7 text-lg font-bold lg:mb-8 lg:text-xl;
+        letter-spacing: -0.285714px;
+    }
+
+    .app-header {
+        @apply px-6 pt-6.5 lg:pt-8 relative z-50;
+        background: center / cover no-repeat url('./imgs/img-background-pattern.svg'), linear-gradient(225deg, #5F86F2 2.99%, #443D97 100%);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.195531);
+        height: 18.75rem;
+    }
+
+    @media screen(lg) {
+        .app-header {
+            height: 17.5rem;
+        }
+    }
+
+    .ip-tracker-form {
+        @apply flex justify-center w-full mx-auto mb-6 relative lg:mb-12;
+        max-width: 34.688rem;
+    }
+
+    .ip-tracker-details {
+        @apply px-6 py-6.5 lg:py-9 lg:px-8 flex-col rounded-2xl bg-white lg:text-left flex flex-wrap justify-evenly lg:flex-row;
+        box-shadow: 0 50px 50px -25px rgba(0, 0, 0, 0.0983665);
+    }
+
+    @media screen(lg) {
+        .ip-tracker-details > .info:not(:first-child) {
+            @apply pl-8;
+            border-left: 1px solid hsla(0, 0%, 0%, 0.15);
+        }
+    }
+
+    .info {
+        @apply lg:w-1/4;
+    }
+
+    .info-label {
+        @apply text-xs lg:text-sm uppercase font-bold mb-1.5 lg:mb-3 mix-blend-normal text-gray;
+        letter-spacing: 1.45833px;
+    }
+
+    .info-value {
+        @apply text-dark-gray font-bold text-md lg:text-lg;
+        letter-spacing: -0.178571px;
+    }
+
+    @media screen(lg) {
+        .info-value {
+            letter-spacing: -0.232143px;
+        }
+
+        .info-label {
+            letter-spacing: -0.232143px;
+        }
+    }
+
+    .svg-icon {
+        display: block;
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+    }
+
+    #map {
+        min-height: calc(100vh - 280px);
+    }
+}
